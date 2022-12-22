@@ -1,13 +1,15 @@
+@use "sass:map";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@import "colors.module";
 @import "breakpoints";
 
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap");
 $bg: var(--bg);
 $fg: var(--fg);
 
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap");
 
 html,
 body {
@@ -22,21 +24,12 @@ body {
 
 body {
     transition: all 0.3s ease-in;
-    &.default {
-        --bg: #ffd77e;
-        --fg: #b43f4b;
-    }
-    &.purple {
-        --bg: #f9d2e0;
-        --fg: #3f51a0;
-    }
-    &.cyan {
-        --bg: #fbd4ca;
-        --fg: #03839d;
-    }
-    &.black {
-        --bg: #ffd87e;
-        --fg: #050606;
+
+    @for $i from 1 through length($themes) {
+        &.theme-sec-#{$i} {
+            --bg: #{map.get(nth($themes, $i), "bg")};
+            --fg: #{map.get(nth($themes, $i), "text")};
+        }
     }
 }
 
@@ -76,7 +69,13 @@ circle {
     }
 }
 
-
-#sec-2 {
-    mask-image: linear-gradient(transparent, rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 1.0), transparent);
+.blur-top-bottom {
+    mask-image: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 1),
+        transparent
+    );
 }

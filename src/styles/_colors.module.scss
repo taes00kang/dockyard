@@ -1,0 +1,32 @@
+@use "sass:map";
+
+// Themes by section
+$sec1: (
+    "bg": #ffd77e,
+    "text": #b43f4b,
+);
+$sec2: (
+    "bg": #f9d2e0,
+    "text": #3f51a0,
+);
+$sec3: (
+    "bg": #fbd4ca,
+    "text": #03839d,
+);
+$sec4: (
+    "bg": #ffd87e,
+    "text": #050606,
+);
+
+$themes: $sec1, $sec2, $sec3, $sec4;
+
+:export {
+    sec1Bg: map.get($sec1, "bg");
+    sec1Text: map.get($sec1, "text");
+    sec2Bg: map.get($sec2, "bg");
+    sec2Text: map.get($sec2, "text");
+    sec3Bg: map.get($sec3, "bg");
+    sec3Text: map.get($sec3, "text");
+    sec4Bg: map.get($sec4, "bg");
+    sec4Text: map.get($sec4, "text");
+}
