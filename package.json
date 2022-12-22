@@ -6,9 +6,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "framer-motion": "^7.9.1",
     "next": "latest",
+    "next-themes": "^0.2.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sass": "^1.56.1"
   },
   "devDependencies": {
     "@types/node": "18.11.3",

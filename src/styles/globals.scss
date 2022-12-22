@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "breakpoints";
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap");
+$bg: var(--bg);
+$fg: var(--fg);
+
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Barlow Condensed", sans-serif;
+    background-color: $bg;
+    color: $fg;
+    height: 100%;
+}
+
+body {
+    transition: all 0.3s ease-in;
+    &.default {
+        --bg: #ffd77e;
+        --fg: #b43f4b;
+    }
+    &.purple {
+        --bg: #f9d2e0;
+        --fg: #3f51a0;
+    }
+    &.cyan {
+        --bg: #fbd4ca;
+        --fg: #03839d;
+    }
+    &.black {
+        --bg: #ffd87e;
+        --fg: #050606;
+    }
+}
+
+.absolute-center-x {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    border-bottom: 3px solid $fg;
+    transition: all 0.3s ease-in;
+    background-color: $bg;
+    color: $fg;
+    z-index: 100;
+}
+
+.dots-and-info {
+    background-image: url("/assets/dotted1.svg");
+    background-repeat: no-repeat;
+}
+
+path,
+circle {
+    transition: fill 0.3s ease-in;
+}
+
+.red-stroke {
+    @include apply-breakpoint(md) {
+        color: #ffd77e;
+        -webkit-text-stroke: 2px;
+        -webkit-text-stroke-color: #b43f4b;
+    }
+}
+
+
+#sec-2 {
+    mask-image: linear-gradient(transparent, rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 1.0), transparent);
+}
