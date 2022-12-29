@@ -4,12 +4,12 @@
 @tailwind utilities;
 
 @import "colors.module";
-@import "breakpoints";
+@import "breakpoint";
 
 $bg: var(--bg);
 $fg: var(--fg);
 
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap");
 
 html,
 body {
@@ -18,7 +18,7 @@ body {
     box-sizing: border-box;
     font-family: "Barlow Condensed", sans-serif;
     background-color: $bg;
-    color: $fg;
+    // color: $fg;
     height: 100%;
 }
 
@@ -31,6 +31,25 @@ body {
             --fg: #{map.get(nth($themes, $i), "text")};
         }
     }
+}
+@for $i from 1 through length($themes) {
+    #sec-#{$i} {
+        color: #{map.get(nth($themes, $i), "text")};
+        // overflow: hidden;
+    }
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+input {
+    &:focus {
+        outline: none;
+    }
+
 }
 
 .absolute-center-x {
@@ -63,10 +82,21 @@ circle {
 
 .red-stroke {
     @include apply-breakpoint(md) {
-        color: #ffd77e;
+        color: $sec1Bg;
         -webkit-text-stroke: 2px;
-        -webkit-text-stroke-color: #b43f4b;
+        -webkit-text-stroke-color: $sec1Text;
     }
+}
+.cyan-stroke {
+    color: $sec3Bg;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: $sec3Text;
+}
+
+.blue-stroke {
+    color: $sec2Bg;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: $sec2Text;
 }
 
 .blur-top-bottom {
@@ -78,4 +108,139 @@ circle {
         rgba(0, 0, 0, 1),
         transparent
     );
+}
+
+.bg-blue-dots {
+    background-image: url("/assets/blue-dots-bg.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 75%;
+}
+
+.pics-container {
+    z-index: 4;
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+    width: 22%;
+    height: 22%;
+    display: flex;
+    align-items: center;
+    border: 5px solid $sec2Bg;
+}
+
+// Headings for section 3 & 4
+@for $i from 3 through 4 {
+    .sec#{$i}-heading {
+        text-transform: uppercase;
+        display: block;
+        font-weight: bold;
+        padding: 0.3vw 1.5vw;
+        font-size: 8vw;
+        line-height: 90%;
+        letter-spacing: -0.1vw;
+        background-color: map.get(nth($themes, $i), "text");
+        color: map.get(nth($themes, $i), "bg");
+        &.top {
+            transform: translateX(-43px) rotate(5deg);
+        }
+        &.bottom {
+            transform: translateX(50px) translateY(6px) rotate(3deg);
+        }
+    }
+}
+
+.ticket-heading {
+    text-transform: uppercase;
+    color: $sec3Text;
+    font-size: 5vw;
+    line-height: 4.5vw;
+    font-weight: bold;
+    letter-spacing: -0.025em;
+}
+
+.info-heading {
+    text-transform: uppercase;
+    color: $sec3Text;
+    font-size: 5vw;
+    line-height: 5.5vw;
+    font-weight: bold;
+    letter-spacing: -0.025em;
+}
+
+.the-space {
+    perspective: 1000px;
+
+    &__heading {
+        color: $sec3Bg;
+        text-shadow: 11px 11px $sec3Text;
+        font-size: 22vw;
+        font-weight: 800;
+    }
+}
+
+.slide {
+    position: absolute;
+    width: 90%;
+    background-color: $sec3Bg;
+    border: 2px solid $sec3Text;
+    height: 35vw;
+
+    &.fill,
+    &.fill > * {
+        background-color: $sec3Text;
+        color: $sec3Bg;
+    }
+
+    &__text-block {
+        position: absolute;
+        left: -2px;
+        bottom: -10%;
+        padding: 0% 1% 0.5% 4%;
+        font-size: 2.5vw;
+        letter-spacing: -1px;
+        line-height: 100%;
+        font-weight: bold;
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        background-color: $sec3Bg;
+        border-width: 0 0 2px 2px;
+        overflow: hidden;
+        border-color: $sec3Text;
+    }
+
+    &__text-roller {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    &__triangle {
+        position: absolute;
+        bottom: -10%;
+        z-index: 5;
+        background-color: $sec3Bg;
+        height: 10%;
+        padding: 0% 1% 0.5% 10%;
+        display: flex;
+        align-items: center;
+        border-style: none solid solid;
+        border-color: $sec3Text;
+        border-width: 2px;
+        perspective-origin: 50% 50%;
+        transform: skew(-30deg, 0deg);
+        transform-origin: 50% 100%;
+    }
+}
+
+.insta-section-heading {
+    margin-top: 10px;
+    font-size: 5vw;
+    line-height: 6vw;
+    font-weight: bold;
+    letter-spacing: 0.005rem;
 }

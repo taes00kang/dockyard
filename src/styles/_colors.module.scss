@@ -20,13 +20,23 @@ $sec4: (
 
 $themes: $sec1, $sec2, $sec3, $sec4;
 
+
+$sec1Bg: map.get($sec1, "bg");
+$sec1Text: map.get($sec1, "text");
+$sec2Bg: map.get($sec2, "bg");
+$sec2Text: map.get($sec2, "text");
+$sec3Bg: map.get($sec3, "bg");
+$sec3Text: map.get($sec3, "text");
+$sec4Bg: map.get($sec4, "bg");
+$sec4Text: map.get($sec4, "text");
+
 :export {
-    sec1Bg: map.get($sec1, "bg");
-    sec1Text: map.get($sec1, "text");
-    sec2Bg: map.get($sec2, "bg");
-    sec2Text: map.get($sec2, "text");
-    sec3Bg: map.get($sec3, "bg");
-    sec3Text: map.get($sec3, "text");
-    sec4Bg: map.get($sec4, "bg");
-    sec4Text: map.get($sec4, "text");
+    sec1Bg: $sec1Bg;
+    sec1Text: $sec1Text;
+    sec2Bg: $sec2Bg;
+    sec2Text: $sec2Text;
+    sec3Bg: $sec3Bg;
+    sec3Text: $sec3Text;
+    sec4Bg: $sec4Bg;
+    sec4Text: $sec4Text;
 }
