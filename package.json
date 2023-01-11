@@ -6,12 +6,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.236.0",
+    "aws-sdk": "^2.1281.0",
     "framer-motion": "^7.9.1",
     "next": "latest",
     "next-themes": "^0.2.1",
     "node-sass": "^8.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-query": "^3.39.2",
     "sass": "^1.56.1"
   },
   "devDependencies": {

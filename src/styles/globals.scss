@@ -3,12 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "colors.module";
-@import "breakpoint";
-
 $bg: var(--bg);
 $fg: var(--fg);
 
+@import "breakpoint";
+@import "./colors/colors.module";
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap");
 
 html,
@@ -18,7 +17,6 @@ body {
     box-sizing: border-box;
     font-family: "Barlow Condensed", sans-serif;
     background-color: $bg;
-    // color: $fg;
     height: 100%;
 }
 
@@ -26,16 +24,15 @@ body {
     transition: all 0.3s ease-in;
 
     @for $i from 1 through length($themes) {
-        &.theme-sec-#{$i} {
+        &.theme-#{$i}-inview {
             --bg: #{map.get(nth($themes, $i), "bg")};
             --fg: #{map.get(nth($themes, $i), "text")};
         }
     }
 }
 @for $i from 1 through length($themes) {
-    #sec-#{$i} {
+    #theme-#{$i} {
         color: #{map.get(nth($themes, $i), "text")};
-        // overflow: hidden;
     }
 }
 
@@ -49,7 +46,6 @@ input {
     &:focus {
         outline: none;
     }
-
 }
 
 .absolute-center-x {
@@ -82,21 +78,21 @@ circle {
 
 .red-stroke {
     @include apply-breakpoint(md) {
-        color: $sec1Bg;
+        color: $theme1Bg;
         -webkit-text-stroke: 2px;
-        -webkit-text-stroke-color: $sec1Text;
+        -webkit-text-stroke-color: $theme1Text;
     }
 }
 .cyan-stroke {
-    color: $sec3Bg;
+    color: $theme3Bg;
     -webkit-text-stroke: 2px;
-    -webkit-text-stroke-color: $sec3Text;
+    -webkit-text-stroke-color: $theme3Text;
 }
 
 .blue-stroke {
-    color: $sec2Bg;
+    color: $theme2Bg;
     -webkit-text-stroke: 2px;
-    -webkit-text-stroke-color: $sec2Text;
+    -webkit-text-stroke-color: $theme2Text;
 }
 
 .blur-top-bottom {
@@ -127,12 +123,12 @@ circle {
     height: 22%;
     display: flex;
     align-items: center;
-    border: 5px solid $sec2Bg;
+    border: 5px solid $theme2Text;
 }
 
 // Headings for section 3 & 4
 @for $i from 3 through 4 {
-    .sec#{$i}-heading {
+    .heading-theme-#{$i} {
         text-transform: uppercase;
         display: block;
         font-weight: bold;
@@ -142,6 +138,8 @@ circle {
         letter-spacing: -0.1vw;
         background-color: map.get(nth($themes, $i), "text");
         color: map.get(nth($themes, $i), "bg");
+        transform: rotate(5deg);
+
         &.top {
             transform: translateX(-43px) rotate(5deg);
         }
@@ -153,16 +151,19 @@ circle {
 
 .ticket-heading {
     text-transform: uppercase;
-    color: $sec3Text;
+    color: $theme3Text;
     font-size: 5vw;
     line-height: 4.5vw;
     font-weight: bold;
     letter-spacing: -0.025em;
+
+    &.price {
+        letter-spacing: 0.015em;
+    }
 }
 
 .info-heading {
     text-transform: uppercase;
-    color: $sec3Text;
     font-size: 5vw;
     line-height: 5.5vw;
     font-weight: bold;
@@ -173,8 +174,8 @@ circle {
     perspective: 1000px;
 
     &__heading {
-        color: $sec3Bg;
-        text-shadow: 11px 11px $sec3Text;
+        color: $theme3Bg;
+        text-shadow: 11px 11px $theme3Text;
         font-size: 22vw;
         font-weight: 800;
     }
@@ -182,15 +183,21 @@ circle {
 
 .slide {
     position: absolute;
-    width: 90%;
-    background-color: $sec3Bg;
-    border: 2px solid $sec3Text;
+    width: 100%;
+    background-color: $theme3Bg;
+    border: 2px solid $theme3Text;
     height: 35vw;
+
+    &, & > * {
+        transition: all 0.5s ease-in;
+        background-color: $theme3Bg;
+        color: $theme3Text;
+    }
 
     &.fill,
     &.fill > * {
-        background-color: $sec3Text;
-        color: $sec3Bg;
+        background-color: $theme3Text;
+        color: $theme3Bg;
     }
 
     &__text-block {
@@ -206,30 +213,29 @@ circle {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        background-color: $sec3Bg;
         border-width: 0 0 2px 2px;
         overflow: hidden;
-        border-color: $sec3Text;
+        border-color: $theme3Text;
+        cursor: pointer;
     }
 
     &__text-roller {
-        cursor: pointer;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        text-transform: uppercase;
     }
 
     &__triangle {
         position: absolute;
         bottom: -10%;
         z-index: 5;
-        background-color: $sec3Bg;
         height: 10%;
         padding: 0% 1% 0.5% 10%;
         display: flex;
         align-items: center;
         border-style: none solid solid;
-        border-color: $sec3Text;
+        border-color: $theme3Text;
         border-width: 2px;
         perspective-origin: 50% 50%;
         transform: skew(-30deg, 0deg);
@@ -240,7 +246,7 @@ circle {
 .insta-section-heading {
     margin-top: 10px;
     font-size: 5vw;
-    line-height: 6vw;
+    line-height: 5vw;
     font-weight: bold;
     letter-spacing: 0.005rem;
 }

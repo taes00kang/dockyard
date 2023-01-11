@@ -4,7 +4,7 @@ interface InViewId {
   inViewId: string | null;
 }
 export function useInView(): InViewId {
-  const [inViewId, setInViewId] = useState<string | null>("sec-1");
+  const [inViewId, setInViewId] = useState<string | null>("theme-1");
 
   useEffect(() => {
     // Get all section elements

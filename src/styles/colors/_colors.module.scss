@@ -1,0 +1,42 @@
+@use "sass:map";
+
+// Themes by section
+$theme1: (
+    "bg": #ffd77e,
+    "text": #b43f4b,
+);
+$theme2: (
+    "bg": #f9d2e0,
+    "text": #3f51a0,
+);
+$theme3: (
+    "bg": #fbd4ca,
+    "text": #03839d,
+);
+$theme4: (
+    "bg": #ffd87e,
+    "text": #050606,
+);
+
+$themes: $theme1, $theme2, $theme3, $theme4;
+
+
+$theme1Bg: map.get($theme1, "bg");
+$theme1Text: map.get($theme1, "text");
+$theme2Bg: map.get($theme2, "bg");
+$theme2Text: map.get($theme2, "text");
+$theme3Bg: map.get($theme3, "bg");
+$theme3Text: map.get($theme3, "text");
+$theme4Bg: map.get($theme4, "bg");
+$theme4Text: map.get($theme4, "text");
+
+:export {
+    theme1Bg: $theme1Bg;
+    theme1Text: $theme1Text;
+    theme2Bg: $theme2Bg;
+    theme2Text: $theme2Text;
+    theme3Bg: $theme3Bg;
+    theme3Text: $theme3Text;
+    theme4Bg: $theme4Bg;
+    theme4Text: $theme4Text;
+}

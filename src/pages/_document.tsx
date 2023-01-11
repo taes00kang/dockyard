@@ -14,7 +14,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <body className='theme-sec-1'>
+        <body className='theme-1-inview'>
           <Main />
           <NextScript />
         </body>
