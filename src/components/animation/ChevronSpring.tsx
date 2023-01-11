@@ -3,14 +3,11 @@ import Image from "next/image";
 import { chevronVariants } from "./variants";
 import { motion } from "framer-motion";
 
-interface Props {
-  targetRef: React.MutableRefObject<null>;
-}
+interface Props {}
 
-export const ChevronSpring: React.FC<Props> = ({ targetRef }) => {
+export const ChevronSpring: React.FC<Props> = () => {
   return (
     <motion.div
-      ref={targetRef}
       variants={chevronVariants}
       initial="initial"
       whileInView="animate"

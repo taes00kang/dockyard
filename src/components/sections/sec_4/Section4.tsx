@@ -13,24 +13,15 @@ export const Section4: React.FC<Props> = () => {
     if (window !== undefined) {
       if (ref.current) {
         window.addEventListener("scroll", () => {
-          if (window.pageYOffset > ref.current!.offsetTop) {
+          if (window.scrollY > ref.current!.offsetTop) {
             setScrollTop(
-              ((window.pageYOffset - ref.current!.offsetTop) / 10) * -1
+              ((window.scrollY - ref.current!.offsetTop) / 10) * -1
             );
           }
         });
       }
     }
   },[]);
-
-  useEffect(() => {
-    console.log(
-      document.body.scrollHeight,
-      window.pageYOffset,
-      ref.current?.offsetTop
-    );
-    console.log(scrollTop);
-  }, [scrollTop]);
 
   return (
     <section id="theme-4" ref={ref}>
@@ -88,11 +79,9 @@ export const Section4: React.FC<Props> = () => {
         </div>
       </div>
       <div className="overflow-hidden">
-        <motion.div
-          // initial={{ x: 0 }}
-          // animate={{ x: scrollYPosition }}
+        <div
           style={{
-            translateX: `${scrollTop}%`,
+            transform: `translateX(${scrollTop}%)`,
           }}
         >
           <Image
@@ -102,7 +91,7 @@ export const Section4: React.FC<Props> = () => {
             alt="arrow black"
             className="h-auto mt-[15vw] relative -left-[150vw] w-[400vw] min-w-[350vw]"
           />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

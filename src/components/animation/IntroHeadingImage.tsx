@@ -6,11 +6,13 @@ import { introHeadingVariants } from "./variants";
 interface Props {
   position: "top" | "middle" | "bottom";
   scrollYPosition: number;
+  ref?: React.RefObject<HTMLDivElement>;
 }
 
 export const IntroHeadingImage: React.FC<Props> = ({
   position,
   scrollYPosition,
+  ref
 }) => {
   const isTop = position === "top";
   const isMiddle = position === "middle";
@@ -23,6 +25,7 @@ export const IntroHeadingImage: React.FC<Props> = ({
 
   return (
     <motion.div
+      ref={ref}
       className="w-full flex item-center justify-center"
       variants={introHeadingVariants}
       initial="hidden"
