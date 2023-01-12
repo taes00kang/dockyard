@@ -11,7 +11,7 @@ export const Section2: React.FC<Props> = () => {
     <section id="theme-2">
       {/* Sec-2-1 */}
       <div className="pb-[5vw]">
-        <div className="flex w-full item-center px-[5%] text-brand-purple-text ">
+        <div className="flex w-full item-center px-[5%] text-brand-theme2-text ">
           <div className="w-[65%] flex flex-col gap-[1vw] justify-center">
             <FadeInDiv className="text-[1.5vw] font-bold">
               IT'S MORE THAN THAT THOUGH
@@ -63,9 +63,9 @@ export const Section2: React.FC<Props> = () => {
                 alt="laughing lady"
                 width={300}
                 height={300}
-                className="h-auto w-full aspect-square border-[5px] border-brand-purple-text shadow-brand-purple-text shadow-[11px_11px_0_0]"
+                className="h-auto w-full aspect-square border-[5px] border-brand-theme2-text shadow-brand-theme2-text shadow-[11px_11px_0_0]"
               />
-              <div className="absolute uppercase left-0 top-0 px-[1vw] py-[0.3vw] bg-brand-purple-text text-brand-purple-bg text-[2.5vw] leading-[3vw] font-bold -translate-x-[34px] -rotate-[11deg]">
+              <div className="absolute uppercase left-0 top-0 px-[1vw] py-[0.3vw] bg-brand-theme2-text text-brand-theme2-bg text-[2.5vw] leading-[3vw] font-bold -translate-x-[34px] -rotate-[11deg]">
                 just look how <br /> happy she is!**
               </div>
             </FadeInDiv>

@@ -250,3 +250,31 @@ circle {
     font-weight: bold;
     letter-spacing: 0.005rem;
 }
+
+
+.menu {
+
+    &__item {
+        
+        &__content {
+            box-shadow: 7px 7px 0 0 $theme3Text;
+            padding: 5px 10px;
+        }
+
+        &__heading {
+            text-transform: uppercase;
+            font-size: 200%;
+            font-weight: bold;
+            line-height: 100%;
+            white-space: nowrap;
+
+            &.location {
+                line-height: 1.42rem;
+                padding: 5% 4%;
+                color: $theme3Bg;
+                background-color: $theme3Text;
+                display: flex;
+            }
+        }
+    }
+}

@@ -63,7 +63,7 @@ export const Section1: React.FC<Props> = () => {
         </div>
       </div>
       {/* Sec 1-2 */}
-      <div className="blur-top-bottom relative uppercase block h-auto md:flex justify-center items-center py-[24vw] md:py-[16vw] overflow-hidden text-brand-default-text px-[5%] text-[13vw] md:text-[7vw] leading-[14vw] md:leading-[6vw] font-bold text-center">
+      <div className="blur-top-bottom relative uppercase block h-auto md:flex justify-center items-center py-[24vw] md:py-[16vw] overflow-hidden text-brand-theme1-text px-[5%] text-[13vw] md:text-[7vw] leading-[14vw] md:leading-[6vw] font-bold text-center">
         <div className="flex flex-col items-center justify-center z-[1]">
           <FadeInDiv
             once

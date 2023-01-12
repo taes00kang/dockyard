@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Cart from "./Cart";
+import { Cart, MenuModal } from ".";
 import { colors } from "../../styles/colors";
 import { useBodyClassName } from "../../hooks/useBodyClassName";
+import { AnimatePresence } from "framer-motion";
 
 interface Props {}
 
 export const Header: React.FC<Props> = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   const bodyClassName = useBodyClassName();
   const [textColor, setTextColor] = useState<string>(bodyClassName);
 
@@ -26,7 +28,10 @@ export const Header: React.FC<Props> = () => {
 
   return (
     <div className="header flex items-center justify-between w-full py-[2%] md:py-[.5%] px-[2%]">
-      <button className="uppercase text-[4vw] md:text-[1.5vw] font-semibold">
+      <button
+        className="uppercase text-[4vw] md:text-[1.5vw] font-semibold"
+        onClick={() => setModalOpen(true)}
+      >
         menu
       </button>
       <button className="logo uppercase text-[6vw] md:text-[4vw] leading-[5vw] font-bold">
@@ -43,6 +48,9 @@ export const Header: React.FC<Props> = () => {
       >
         <Cart color={textColor} />
       </button>
+      <AnimatePresence>
+        {modalOpen && <MenuModal setIsOpen={setModalOpen} />}
+      </AnimatePresence>
     </div>
   );
 };

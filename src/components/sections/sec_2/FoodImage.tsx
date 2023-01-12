@@ -19,7 +19,7 @@ export const FoodImage: React.FC<Props> = ({
   return (
     <div
       id={id}
-      className="pics-container shadow-brand-purple-text shadow-[11px_11px_0_0]"
+      className="pics-container shadow-brand-theme2-text shadow-[11px_11px_0_0]"
       style={{
         transform: `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`,
       }}

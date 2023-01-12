@@ -11,7 +11,7 @@ export const HorizontalLine: React.FC<Props> = ({className}) => {
     className={"w-full " + className }
     >
       
-        <div className="w-full bg-brand-cyan-text h-[2px]" />
+        <div className="w-full bg-brand-theme3-text h-[2px]" />
     </FadeInDiv>
   );
 };

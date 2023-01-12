@@ -14,9 +14,7 @@ export const Ticket: React.FC<ITicket> = ({
   day,
 }) => {
 
-  
-
-  const date = getDate(day, month);
+  const date = getDate(day, month)
   const message = "treat yo self";
   return (
     <li className="w-full flex flex-col">
@@ -41,7 +39,7 @@ export const Ticket: React.FC<ITicket> = ({
         </div>
         <FadeInDiv
           once
-          className="flex-1 w-full p-[1%] border-2 border-brand-cyan-text shadow-brand-cyan-text shadow-[.5vw_.5vw] overflow-hidden"
+          className="flex-1 w-full p-[1%] border-2 border-brand-theme3-text shadow-brand-theme3-text shadow-[.5vw_.5vw] overflow-hidden"
         >
           <div className="w-full flex justify-between">
             <h1 className="ticket-heading">

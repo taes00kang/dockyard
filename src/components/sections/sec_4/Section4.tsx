@@ -5,23 +5,20 @@ import { motion, useScroll } from "framer-motion";
 interface Props {}
 
 export const Section4: React.FC<Props> = () => {
-
   const [scrollTop, setScrollTop] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (window !== undefined) {
-      if (ref.current) {
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > ref.current!.offsetTop) {
-            setScrollTop(
-              ((window.scrollY - ref.current!.offsetTop) / 10) * -1
-            );
-          }
-        });
+    const handleScroll = () => {
+      if (window.scrollY > ref.current!.offsetTop) {
+        setScrollTop(((window.scrollY - ref.current!.offsetTop) / 10) * -1);
       }
+    };
+    if (window !== undefined && ref.current) {
+      window.addEventListener("scroll", handleScroll);
     }
-  },[]);
+    return window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section id="theme-4" ref={ref}>

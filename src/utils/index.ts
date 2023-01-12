@@ -3,8 +3,8 @@ import { ITicket } from "../interfaces";
 // functions
 
 export const getDate = (
-  day: number | null,
-  month: number | null
+  day: number | null | undefined,
+  month: number | null | undefined
 ): string | null => {
   let dayLong = null;
   let monthLong = null;
@@ -28,10 +28,7 @@ export const getDate = (
       : monthLong
     : null;
 
-  if (date) {
-    return date;
-  }
-  return null;
+  return date;
 };
 
 export const formatMonth = (n: number) => {

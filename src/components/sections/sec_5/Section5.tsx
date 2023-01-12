@@ -15,16 +15,16 @@ export const Section5: React.FC<Props> = () => {
         </a>
         <div>Or...</div>
         <div className="insta-section-heading">JOIN OUR MAILING LIST?</div>
-        <div className="w-[40%] h-[60px] my-[2%] border-2 border-brand-purple-text">
+        <div className="w-[40%] h-[60px] my-[2%] border-2 border-brand-theme2-text">
           <form className="flex w-full h-full" action="">
             <input
-              className="w-full bg-transparent px-[12px] py-[8px] placeholder:text-brand-purple-text"
+              className="w-full bg-transparent px-[12px] py-[8px] placeholder:text-brand-theme2-text"
               type="email"
               placeholder="Your email"
               required
             />
             <button
-              className="w-1/5 h-full bg-brand-purple-text text-brand-purple-bg"
+              className="w-1/5 h-full bg-brand-theme2-text text-brand-theme2-bg"
               type="submit"
             >
               SUBMIT

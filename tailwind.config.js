@@ -5,19 +5,19 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          default: {
+          theme1: {
             bg: "#FFD77E",
             text: "#B43F4B",
           },
-          purple: {
+          theme2: {
             bg: "#F9D2E0",
             text: "#3F51A0",
           },
-          cyan: {
+          theme3: {
             bg: "#FBD4CA",
             text: "#03839D",
           },
-          black: {
+          theme4: {
             bg: "#ffd87e",
             text: "#050606",
           },
