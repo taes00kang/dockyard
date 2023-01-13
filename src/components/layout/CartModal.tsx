@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimationControls } from "framer-motion";
-import { Modal, CloseIcon } from ".";
+import { Modal, CloseIcon, ModalItem } from ".";
 import { colors } from "../../styles/colors";
-import ModalItem from "./ModalItem";
+import { useAppSelector } from '../../redux/hooks';
+import { RootState } from '../../redux/store'
+import TicketInCart from './TicketInCart';
 
 interface Props {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,6 +16,8 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
   const fadeIn = { x: 0 };
   const fadeOut = { x: 50 };  
 
+  const tickets = useAppSelector((state: RootState) => state.cart.tickets)
+  
   useEffect(() => {
     controls.start(fadeIn);    
   }, []);
@@ -42,7 +46,12 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-6 p-6 overflow-y-scroll">
-          <ModalItem
+          {
+            tickets.map((ticket) => 
+              <TicketInCart ticket={ticket} />
+            )
+          }
+          {/* <ModalItem
             itemClassName="min-h-[20vh]"
             contentClassName="w-[90%] h-[80%]"
           >
@@ -52,11 +61,11 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
               </div>
               <div className="flex text-[1.5vh] py-2">
                 <div className="">Quantity x </div>
-                {/* <input
+                <input
                   className="w-[15%] h-auto bg-transparent px-2"
                   type="number"
                   value="3"
-                /> */}
+                />
               </div>
               <div className="flex items-center justify-between">
                 <button className="font-bold">Remove</button>
@@ -74,11 +83,11 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
               </div>
               <div className="flex text-[1.5vh]">
                 <div className="py-2">Quantity x </div>
-                {/* <input
+                <input
                   className="w-[20%] h-auto bg-transparent p-2"
                   type="number"
                   value="3"
-                /> */}
+                />
               </div>
               <div className="flex items-center justify-between">
                 <div>Remove</div>
@@ -96,11 +105,11 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
               </div>
               <div className="flex text-[1.5vh]">
                 <div className="py-2">Quantity x </div>
-                {/* <input
+                <input
                   className="w-[20%] h-auto bg-transparent p-2"
                   type="number"
                   value="3"
-                /> */}
+                />
               </div>
               <div className="flex items-center justify-between">
                 <div>Remove</div>
@@ -118,18 +127,18 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
               </div>
               <div className="flex text-[1.5vh]">
                 <div className="py-2">Quantity x </div>
-                {/* <input
+                <input
                   className="w-[20%] h-auto bg-transparent p-2"
                   type="number"
                   value="3"
-                /> */}
+                />
               </div>
               <div className="flex items-center justify-between">
                 <div>Remove</div>
                 <div>$10.00</div>
               </div>
             </div>
-          </ModalItem>
+          </ModalItem> */}
         </div>
         <div className="w-full px-[8%] py-[4%] h-[20%] flex flex-col  bg-brand-theme3-text">
           <div className="w-full flex items-center justify-between font-semibold text-[2.5vh] text-brand-theme3-bg">

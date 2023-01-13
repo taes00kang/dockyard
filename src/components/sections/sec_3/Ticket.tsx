@@ -4,18 +4,23 @@ import { CTA } from "../../layout";
 import { FadeInDiv } from "../../animation";
 import HorizontalLine from "./HorizontalLine";
 import { ITicket } from "../../../interfaces";
-import { getDate } from '../../../utils'
+import { getDate } from "../../../utils";
+import { useAppDispatch } from "../../../redux/hooks";
+import { addToCart } from "../../../redux/ticketSlice";
 
 export const Ticket: React.FC<ITicket> = ({
+  id,
   type,
   title,
   price,
   month,
   day,
 }) => {
-
-  const date = getDate(day, month)
+  const date = getDate(day, month);
   const message = "treat yo self";
+
+  const dispatch = useAppDispatch();
+
   return (
     <li className="w-full flex flex-col">
       <div className="w-full flex gap-[6vw] items-center justify-between">
@@ -34,7 +39,23 @@ export const Ticket: React.FC<ITicket> = ({
             </FadeInDiv>
           )}
           <div>
-            <CTA text="Buy now" theme="theme3" />
+            <CTA
+              text="Buy now"
+              theme="theme3"
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    id: id,
+                    quantity: 1,
+                    price: price,
+                    title: title,
+                    type: type,
+                    day: day,
+                    month: month,
+                  })
+                )
+              }
+            />
           </div>
         </div>
         <FadeInDiv
@@ -79,4 +100,3 @@ export const Ticket: React.FC<ITicket> = ({
 };
 
 export default Ticket;
-

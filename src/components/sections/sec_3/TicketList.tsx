@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useQuery } from "react-query";
 import { ITicket } from "../../../interfaces";
-
-import { BlockHeading } from "../../layout";
-import { EventTicketList, Ticket, WeekendTicketList } from ".";
-
-import { getMonths } from "../../../utils";
+import { EventTicketList, WeekendTicketList } from ".";
 
 interface Props {}
 

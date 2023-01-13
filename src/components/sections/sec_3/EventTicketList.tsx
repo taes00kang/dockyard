@@ -29,6 +29,7 @@ export const EventTicketList: React.FC<Props> = ({ tickets }) => {
             {tickets.map((ticket, idx) => (
               <Ticket
                 key={idx}
+                id={ticket.id}
                 type={ticket.type}
                 title={ticket.title}
                 price={ticket.price}
