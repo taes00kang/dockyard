@@ -5,3 +5,6 @@ export { default as BlockHeading } from "./BlockHeading";
 export { default as Cart } from "./Cart";
 export { default as Modal } from "./Modal";
 export { default as MenuModal } from "./MenuModal";
+export { default as CartModal } from "./CartModal";
+export { default as ModalItem } from "./ModalItem";
+export { default as CloseIcon } from "./CloseIcon";

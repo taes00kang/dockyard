@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Cart, MenuModal } from ".";
+import { Cart, CartModal, MenuModal } from ".";
 import { colors } from "../../styles/colors";
 import { useBodyClassName } from "../../hooks/useBodyClassName";
 import { AnimatePresence } from "framer-motion";
@@ -7,7 +7,8 @@ import { AnimatePresence } from "framer-motion";
 interface Props {}
 
 export const Header: React.FC<Props> = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false)
   const bodyClassName = useBodyClassName();
   const [textColor, setTextColor] = useState<string>(bodyClassName);
 
@@ -30,7 +31,7 @@ export const Header: React.FC<Props> = () => {
     <div className="header flex items-center justify-between w-full py-[2%] md:py-[.5%] px-[2%]">
       <button
         className="uppercase text-[4vw] md:text-[1.5vw] font-semibold"
-        onClick={() => setModalOpen(true)}
+        onClick={() => setMenuOpen(true)}
       >
         menu
       </button>
@@ -39,19 +40,15 @@ export const Header: React.FC<Props> = () => {
       </button>
       <button
         className="relative w-[5vw] md:w-[3vw] aspect-square"
-        onClick={() => {
-          document.body.classList.replace(
-            document.body.className,
-            "theme-sec2"
-          );
-        }}
+        onClick={() => setCartOpen(true)}
       >
         <Cart color={textColor} />
       </button>
       <AnimatePresence>
-        {modalOpen && <MenuModal setIsOpen={setModalOpen} />}
+        {menuOpen && <MenuModal setIsOpen={setMenuOpen} />}
+        {cartOpen && <CartModal setIsOpen={setCartOpen} /> }
       </AnimatePresence>
-    </div>
+    </div> 
   );
 };
 

@@ -1,14 +1,13 @@
 import { ITicket } from "../interfaces";
 
 // functions
-
 export const getDate = (
   day: number | null | undefined,
   month: number | null | undefined
 ): string | null => {
   let dayLong = null;
   let monthLong = null;
-
+  
   if (day) {
     if (day < 1 && day > 31) {
       throw Error("Incorrect date value.");
@@ -16,7 +15,7 @@ export const getDate = (
     dayLong = formatDay(day);
   }
   if (month) {
-    if (month < 1 && month > 31) {
+    if (month < 1 && month > 12) {
       throw Error("Incorrect month value.");
     }
     monthLong = formatMonth(month);
@@ -36,7 +35,8 @@ export const formatMonth = (n: number) => {
     month: "long",
   });
 
-  // random date form with current month value
+  // Random date form with current month value.
+  // Month value should be subtracted by 1, because Date object takes index of month as prop.
   const date = new Date(1000, n - 1, 1);
 
   return rule.format(date).toLowerCase();

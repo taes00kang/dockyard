@@ -1,4 +1,5 @@
 export interface ITicket {
+    id: number
     type: "weekend"| "event" | "voucher";
     title: string;
     price: number;
@@ -6,7 +7,7 @@ export interface ITicket {
     day?: number | null;
   }
 
-
-export interface ITicketWithMonth extends ITicket {
-  month: number
+export interface ITicketInCart extends ITicket {
+  quantity: number
 }
+

@@ -3,6 +3,7 @@ import type { ReactElement, ReactNode } from "react";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import { QueryProvider } from "../components/query";
+import { ReduxProvider } from "../redux";
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -17,9 +18,11 @@ function MyApp({
 }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
   return getLayout(
-    <QueryProvider>
-      <Component {...pageProps} />
-    </QueryProvider>
+    <ReduxProvider>
+      <QueryProvider>
+        <Component {...pageProps} />
+      </QueryProvider>
+    </ReduxProvider>
   );
 }
 

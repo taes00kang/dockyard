@@ -17,7 +17,7 @@ export const Section4: React.FC<Props> = () => {
     if (window !== undefined && ref.current) {
       window.addEventListener("scroll", handleScroll);
     }
-    return window.removeEventListener("scroll", handleScroll);
+    return ()=> window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

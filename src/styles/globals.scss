@@ -10,6 +10,12 @@ $fg: var(--fg);
 @import "./colors/colors.module";
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap");
 
+@mixin borderShadowBox($textColor, $bgColor) {
+    box-shadow: 7px 7px 0 0 $textColor;
+    border: 4px solid $textColor;
+    background-color: $bgColor;
+}
+
 html,
 body {
     padding: 0;
@@ -188,7 +194,8 @@ circle {
     border: 2px solid $theme3Text;
     height: 35vw;
 
-    &, & > * {
+    &,
+    & > * {
         transition: all 0.5s ease-in;
         background-color: $theme3Bg;
         color: $theme3Text;
@@ -251,30 +258,32 @@ circle {
     letter-spacing: 0.005rem;
 }
 
+.modal-item {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid $theme3Text;
 
-.menu {
+    &__content {
+        @include borderShadowBox($theme3Text, $theme3Bg);
+        z-index: 3;
+    }
 
-    &__item {
-        
-        &__content {
-            box-shadow: 7px 7px 0 0 $theme3Text;
-            padding: 5px 10px;
-        }
+    &__heading {
+        text-transform: uppercase;
+        font-size: 200%;
+        font-weight: bold;
+        line-height: 100%;
+        white-space: nowrap;
 
-        &__heading {
-            text-transform: uppercase;
-            font-size: 200%;
-            font-weight: bold;
-            line-height: 100%;
-            white-space: nowrap;
-
-            &.location {
-                line-height: 1.42rem;
-                padding: 5% 4%;
-                color: $theme3Bg;
-                background-color: $theme3Text;
-                display: flex;
-            }
+        &.location {
+            line-height: 1.42rem;
+            padding: 3% 4%;
+            color: $theme3Bg;
+            background-color: $theme3Text;
+            display: flex;
         }
     }
 }

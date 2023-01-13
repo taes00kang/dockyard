@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { tickets } from "../../../data/tickets";
+import tickets from "../../../data/tickets.json";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
