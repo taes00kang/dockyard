@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
 import { motion, useAnimationControls } from "framer-motion";
 import { Modal, CloseIcon, ModalItem } from ".";
 import { colors } from "../../styles/colors";
-import { useAppSelector } from '../../redux/hooks';
-import { RootState } from '../../redux/store'
-import TicketInCart from './TicketInCart';
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { rehydrate } from '../../redux/ticketSlice'
+import { RootState } from "../../redux/store";
+import TicketInCart from "./TicketInCart";
 
 interface Props {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,13 +14,18 @@ interface Props {
 export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
   const controls = useAnimationControls();
   const fadeIn = { x: 0 };
-  const fadeOut = { x: 50 };  
+  const fadeOut = { x: 50 };
 
-  const tickets = useAppSelector((state: RootState) => state.cart.tickets)
-  
+  const tickets = useAppSelector((state: RootState) => state.cart.tickets);
+
+  const dispatch = useAppDispatch()
   useEffect(() => {
-    controls.start(fadeIn);    
+    controls.start(fadeIn);
   }, []);
+
+  useEffect(() => {
+    dispatch(rehydrate())
+  },[])
 
   const handleCloseClick = () => {
     controls.start(fadeOut);
@@ -46,104 +51,27 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-6 p-6 overflow-y-scroll">
-          {
-            tickets.map((ticket) => 
-              <TicketInCart ticket={ticket} />
-            )
-          }
-          {/* <ModalItem
-            itemClassName="min-h-[20vh]"
-            contentClassName="w-[90%] h-[80%]"
-          >
-            <div className="p-[3%] w-full h-full flex flex-col justify-between">
-              <div className="font-bold text-[2vh]">
-                Meet & Greet - Encanto (January)
-              </div>
-              <div className="flex text-[1.5vh] py-2">
-                <div className="">Quantity x </div>
-                <input
-                  className="w-[15%] h-auto bg-transparent px-2"
-                  type="number"
-                  value="3"
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <button className="font-bold">Remove</button>
-                <div>$10.00</div>
-              </div>
-            </div>
-          </ModalItem>
-          <ModalItem
-            itemClassName="min-h-[20vh]"
-            contentClassName="w-[90%] h-[80%]"
-          >
-            <div className="p-[3%] w-full h-full flex flex-col justify-between">
-              <div className="font-bold text-[2vh]">
-                Meet & Greet - Encanto (January)
-              </div>
-              <div className="flex text-[1.5vh]">
-                <div className="py-2">Quantity x </div>
-                <input
-                  className="w-[20%] h-auto bg-transparent p-2"
-                  type="number"
-                  value="3"
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <div>Remove</div>
-                <div>$10.00</div>
-              </div>
-            </div>
-          </ModalItem>
-          <ModalItem
-            itemClassName="min-h-[20vh]"
-            contentClassName="w-[90%] h-[80%]"
-          >
-            <div className="p-[3%] w-full h-full flex flex-col justify-between">
-              <div className="font-bold text-[2vh]">
-                Meet & Greet - Encanto (January)
-              </div>
-              <div className="flex text-[1.5vh]">
-                <div className="py-2">Quantity x </div>
-                <input
-                  className="w-[20%] h-auto bg-transparent p-2"
-                  type="number"
-                  value="3"
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <div>Remove</div>
-                <div>$10.00</div>
-              </div>
-            </div>
-          </ModalItem>
-          <ModalItem
-            itemClassName="min-h-[20vh]"
-            contentClassName="w-[90%] h-[80%]"
-          >
-            <div className="p-[3%] w-full h-full flex flex-col justify-between">
-              <div className="font-bold text-[2vh]">
-                Meet & Greet - Encanto (January)
-              </div>
-              <div className="flex text-[1.5vh]">
-                <div className="py-2">Quantity x </div>
-                <input
-                  className="w-[20%] h-auto bg-transparent p-2"
-                  type="number"
-                  value="3"
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <div>Remove</div>
-                <div>$10.00</div>
-              </div>
-            </div>
-          </ModalItem> */}
+          {tickets.map((ticket) => (
+            <TicketInCart ticket={ticket} />
+          ))}
         </div>
         <div className="w-full px-[8%] py-[4%] h-[20%] flex flex-col  bg-brand-theme3-text">
           <div className="w-full flex items-center justify-between font-semibold text-[2.5vh] text-brand-theme3-bg">
             <div>Subtotal</div>
-            <div>$25.00</div>
+            <div>
+              {
+                // Get sum of ticket prices and convert it to US currency.
+                tickets
+                  .reduce(
+                    (acc, ticket) => acc + ticket.price * ticket.quantity,
+                    0
+                  )
+                  .toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })
+              }
+            </div>
           </div>
           <div className="flex w-full h-full items-center">
             <button className="w-full h-[8vh] text-brand-theme3-bg border-2 font-semibold border-brand-theme3-bg hover:bg-brand-theme3-bg hover:text-[2.5vh] hover:text-brand-theme3-text duration-200 ease-in ">

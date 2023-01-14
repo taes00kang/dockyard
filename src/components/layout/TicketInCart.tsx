@@ -3,7 +3,6 @@ import { ModalItem } from ".";
 import { ITicketInCart } from '../../interfaces'
 import { useAppDispatch } from '../../redux/hooks'
 import { removeFromCart, updateQuantity } from '../../redux/ticketSlice';
-// import { updateQuantity } from '../../redux/ticketSlice';
 
 interface Props {
     ticket: ITicketInCart
@@ -27,6 +26,7 @@ export const TicketInCart: React.FC<Props> = ({ ticket }) => {
                 <input
                   className="w-[15%] h-auto bg-transparent px-2"
                   type="number"
+                  min={1}
                   value={ticket.quantity}
                   onChange={(e) =>{ console.log(e.target.value);
                    setTicketQuantity(parseInt(e.target.value)), dispatch(updateQuantity({ id: ticket.id, quantity: parseInt(e.target.value)}))} }
