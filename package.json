@@ -3,8 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "push" : "git add . && git commit -m '$1' && git pull origin main && git push origin main"
+    "start": "next start"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.236.0",
