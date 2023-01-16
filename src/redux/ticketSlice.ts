@@ -13,6 +13,10 @@ const initialState: CartState = {
   tickets: [],
 };
 
+const cacheState = (state: CartState) => {
+  localStorage.setItem("cart", JSON.stringify(state.tickets));
+};
+
 export const cartSlice = createSlice({
   name: "cart",
   // `createSlice` will infer the state type from the `initialState` argument
@@ -22,7 +26,7 @@ export const cartSlice = createSlice({
       const listFromLocalStorage = localStorage.getItem("cart");
       if (listFromLocalStorage) {
         const list = JSON.parse(listFromLocalStorage);
-        state.tickets = list
+        state.tickets = list;
       }
     },
     addToCart: (state, action: PayloadAction<ITicketInCart>) => {
@@ -34,9 +38,8 @@ export const cartSlice = createSlice({
       } else {
         state.tickets.push(action.payload);
       }
-      
-      localStorage.setItem("cart", JSON.stringify(state.tickets))
-      
+
+      cacheState(state);
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
       const existingTicket = state.tickets.find(
@@ -47,8 +50,8 @@ export const cartSlice = createSlice({
           (ticket) => ticket.id !== action.payload
         );
       }
-      localStorage.setItem("cart", JSON.stringify(state.tickets))
 
+      cacheState(state);
     },
     updateQuantity: (
       state,
@@ -60,13 +63,14 @@ export const cartSlice = createSlice({
         }
         return ticket;
       });
-      localStorage.setItem("cart", JSON.stringify(state.tickets))
-      
+
+      cacheState(state);
     },
   },
 });
 
-export const { rehydrate ,addToCart, removeFromCart, updateQuantity } = cartSlice.actions;
+export const { rehydrate, addToCart, removeFromCart, updateQuantity } =
+  cartSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCart = (state: RootState) => state.cart;

@@ -1,10 +1,13 @@
 import type { NextPageWithLayout } from "./_app";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { useEffect } from "react";
 import { colors } from "../styles/colors";
 import { useInView } from "../hooks/useInView";
-import { ITicket } from "../interfaces";
+
+// redux 
+import { useAppDispatch } from "../redux/hooks";
+import { rehydrate } from '../redux/ticketSlice'
+
 
 // components
 import { Header } from "../components/layout/Header";
@@ -26,6 +29,11 @@ const Home: NextPageWithLayout = () => {
       `${inViewId}-inview`
     );
   }, [inViewId]);
+  
+  const dispatch = useAppDispatch()
+    useEffect(() => {
+    dispatch(rehydrate())
+  },[])
 
   return (
     <div>

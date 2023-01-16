@@ -18,14 +18,9 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
 
   const tickets = useAppSelector((state: RootState) => state.cart.tickets);
 
-  const dispatch = useAppDispatch()
   useEffect(() => {
     controls.start(fadeIn);
   }, []);
-
-  useEffect(() => {
-    dispatch(rehydrate())
-  },[])
 
   const handleCloseClick = () => {
     controls.start(fadeOut);
@@ -52,7 +47,7 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
         </div>
         <div className="flex flex-1 flex-col gap-6 p-6 overflow-y-scroll">
           {tickets.map((ticket) => (
-            <TicketInCart ticket={ticket} />
+            <TicketInCart key={ticket.id} ticket={ticket} />
           ))}
         </div>
         <div className="w-full px-[8%] py-[4%] h-[20%] flex flex-col  bg-brand-theme3-text">

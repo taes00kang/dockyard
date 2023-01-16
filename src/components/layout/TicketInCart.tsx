@@ -9,7 +9,6 @@ interface Props {
 }
 
 export const TicketInCart: React.FC<Props> = ({ ticket }) => {
-    const [ticketQuantity, setTicketQuantity] = useState(ticket.quantity)
 
     const dispatch = useAppDispatch()
     return (
@@ -28,8 +27,8 @@ export const TicketInCart: React.FC<Props> = ({ ticket }) => {
                   type="number"
                   min={1}
                   value={ticket.quantity}
-                  onChange={(e) =>{ console.log(e.target.value);
-                   setTicketQuantity(parseInt(e.target.value)), dispatch(updateQuantity({ id: ticket.id, quantity: parseInt(e.target.value)}))} }
+                  onChange={(e) =>{
+                    dispatch(updateQuantity({ id: ticket.id, quantity: parseInt(e.target.value)}))} }
                 />
               </div>
               <div className="flex items-center justify-between">
