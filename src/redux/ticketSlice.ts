@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
 import { ITicketInCart } from "../interfaces";
-import { stringify } from "querystring";
 
 // Define a type for the slice state
 interface CartState {
