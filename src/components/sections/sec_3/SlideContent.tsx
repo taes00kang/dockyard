@@ -3,13 +3,17 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { slideContentVariants } from "../../animation/variants";
 import { CTA } from "../../layout";
-import {SlideTag} from './types'
+import { SlideTag } from "./types";
+
+import { useImages } from "../../../redux/hooks";
 
 interface Props {
-  slideTag: SlideTag
+  slideTag: SlideTag;
 }
 
 export const SlideContent: React.FC<Props> = ({ slideTag }) => {
+  const { images, isLoading } = useImages();
+
   switch (slideTag) {
     case "info":
       return (
@@ -25,13 +29,15 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
             <h1 className="info-heading">WE'RE ALL ABOUT</h1>
             <h1 className="info-heading">THE COMMUNITY.</h1>
           </div>
-          <Image
-            src="/assets/arrows-cyan.svg"
-            alt="arrow cyan"
-            width={200}
-            height={50}
-            className="w-full h-auto"
-          />
+          {!isLoading && (
+            <Image
+              src={images["arrows-cyan.svg"]}
+              alt="arrow cyan"
+              width={200}
+              height={50}
+              className="w-full h-auto"
+            />
+          )}
           <p>
             Located on the footprint of one of Glasgow’s world-renowned naval
             engineering facilities, now stands a converted West End industrial
@@ -88,13 +94,15 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
             <CTA text="get in touch" theme="theme3_reverse" />
           </div>
           <div className="flex w-full items-center justify-center">
-            <Image
-              src="/assets/interior.png"
-              alt="interior map"
-              width={500}
-              height={400}
-              className="h-auto w-full"
-            />
+            {!isLoading && (
+              <Image
+                src={images["interior.png"]}
+                alt="interior map"
+                width={500}
+                height={400}
+                className="h-auto w-full"
+              />
+            )}
           </div>
         </motion.div>
       );
@@ -112,13 +120,15 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
             <h1 className="info-heading">A new way</h1>
             <h1 className="info-heading">of learning.</h1>
           </div>
-          <Image
-            src="/assets/arrows-cyan.svg"
-            alt="arrow cyan"
-            width={200}
-            height={50}
-            className="w-full h-auto"
-          />
+          {!isLoading && (
+            <Image
+              src={images["arrows-cyan.svg"]}
+              alt="arrow cyan"
+              width={200}
+              height={50}
+              className="w-full h-auto"
+            />
+          )}
           <p>
             Whether you’re a brand-new business finding your feet, or have
             fallen on hard times, we want to build a facility to help equip you

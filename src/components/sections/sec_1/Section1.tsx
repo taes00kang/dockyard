@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useScroll } from "framer-motion";
 import { CTA } from "../../layout";
+import { useImages } from "../../../redux/hooks";
 import {
   FadeInDiv,
   ChevronMoveUp,
@@ -36,6 +36,8 @@ export const Section1: React.FC<Props> = () => {
     };
   }, []);
 
+  const { isLoading } = useImages();
+
   return (
     <section id="theme-1">
       {/* Sec 1-1 */}
@@ -43,18 +45,22 @@ export const Section1: React.FC<Props> = () => {
         <div className="dots-and-info relative w-full h-full pb-[2%] bg-[length:60%] md:bg-[length:40%] bg-[100%_2%] sm:bg-[99%_90%] flex flex-col items-center sm:items-start justify-end ">
           <div className="flex flex-col w-full justify-center pt-[10%] md:h-[45vw]">
             <div ref={ref} />
-            <IntroHeadingImage
-              scrollYPosition={scrollYPosition}
-              position="top"
-            />
-            <IntroHeadingImage
-              scrollYPosition={scrollYPosition}
-              position="middle"
-            />
-            <IntroHeadingImage
-              scrollYPosition={scrollYPosition}
-              position="bottom"
-            />
+            {!isLoading && (
+              <>
+                <IntroHeadingImage
+                  scrollYPosition={scrollYPosition}
+                  position="top"
+                />
+                <IntroHeadingImage
+                  scrollYPosition={scrollYPosition}
+                  position="middle"
+                />
+                <IntroHeadingImage
+                  scrollYPosition={scrollYPosition}
+                  position="bottom"
+                />
+              </>
+            )}
           </div>
           <div className="md:static sm:absolute left-0 bottom-[-15%] sm:mt-0 mt-[15%]">
             <CTA text="free cocktail here" theme="theme1" />

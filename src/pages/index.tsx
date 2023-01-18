@@ -1,13 +1,15 @@
 import type { NextPageWithLayout } from "./_app";
+import type { GetServerSideProps, InferGetServerSidePropsType, GetStaticProps } from "next";
 import Head from "next/head";
 import { useEffect } from "react";
 import { colors } from "../styles/colors";
 import { useInView } from "../hooks/useInView";
+import { getImageMap, ImageObject } from "../aws";
 
-// redux 
-import { useAppDispatch } from "../redux/hooks";
-import { rehydrate } from '../redux/ticketSlice'
-
+// redux
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { rehydrate } from "../redux/ticketSlice";
+import { setImages } from "../redux/imageSlices";
 
 // components
 import { Header } from "../components/layout/Header";
@@ -20,7 +22,9 @@ import {
   Section5,
 } from "../components/sections";
 
-const Home: NextPageWithLayout = () => {
+const Home: NextPageWithLayout<
+  InferGetServerSidePropsType<typeof getStaticProps>
+> = ({ images }) => {
   const { inViewId } = useInView();
 
   useEffect(() => {
@@ -29,11 +33,14 @@ const Home: NextPageWithLayout = () => {
       `${inViewId}-inview`
     );
   }, [inViewId]);
-  
-  const dispatch = useAppDispatch()
-    useEffect(() => {
-    dispatch(rehydrate())
-  },[])
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(rehydrate());
+    dispatch(setImages(images));
+  }, []);
+
 
   return (
     <div>
@@ -53,3 +60,18 @@ const Home: NextPageWithLayout = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps<{
+  images: ImageObject;
+}> = async () => {
+  const images = await getImageMap(
+    process.env.NEXT_PUBLIC_S3_BUCKET_NAME!,
+    "/images/home"
+  );
+
+  return {
+    props: {
+      images,
+    },
+  };
+};

@@ -3,6 +3,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { introHeadingVariants } from "./variants";
 
+import { useImages } from "../../redux/hooks";
+
 interface Props {
   position: "top" | "middle" | "bottom";
   scrollYPosition: number;
@@ -12,7 +14,7 @@ interface Props {
 export const IntroHeadingImage: React.FC<Props> = ({
   position,
   scrollYPosition,
-  ref
+  ref,
 }) => {
   const isTop = position === "top";
   const isMiddle = position === "middle";
@@ -22,6 +24,8 @@ export const IntroHeadingImage: React.FC<Props> = ({
     : isMiddle
     ? "rotate-[3deg] -mr-16 md:-mr-24"
     : "rotate-[1deg] -mt-[2%] px-[5%] -ml-16 md:-ml-24";
+
+  const { images } = useImages();
 
   return (
     <motion.div
@@ -43,7 +47,7 @@ export const IntroHeadingImage: React.FC<Props> = ({
     >
       <Image
         alt="intro box"
-        src={`/assets/text-block-${isTop ? 1 : isMiddle ? 2 : 3}.svg`}
+        src={images[`text-block-${isTop ? 1 : isMiddle ? 2 : 3}.svg`]}
         width={300}
         height={200}
         className={"w-[85%] sm:w-[70%] md:w-[50%] h-auto " + imageClassName}

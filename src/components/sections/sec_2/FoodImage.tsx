@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
+import { useImages } from "../../../redux/hooks";
+
 interface Props {
   id?: string;
   srcSet: [string, string];
@@ -16,28 +18,37 @@ export const FoodImage: React.FC<Props> = ({
   translateY = 0,
   rotate = 0,
 }) => {
+  const { images, isLoading } = useImages();
   return (
     <div
       id={id}
-      className="pics-container shadow-brand-theme2-text shadow-[11px_11px_0_0]"
+      className="pics-container bg-brand-theme2-bg shadow-brand-theme2-text shadow-[11px_11px_0_0]"
       style={{
         transform: `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`,
       }}
     >
-      <Image
-        src={srcSet[0]}
-        alt="food image front"
-        width={300}
-        height={300}
-        className="h-auto z-[3] relative w-full hover:opacity-0 duration-300 ease-in"
-      />
-      <Image
-        src={srcSet[1]}
-        alt="food image back"
-        width={300}
-        height={300}
-        className="h-auto absolute top-0 left-0 w-full duration-300 ease-in"
-      />
+      {!isLoading && (
+        <>
+          <Image
+            src={images[srcSet[0]]}
+            alt="food image front"
+            width={300}
+            height={300}
+            className="h-auto z-[3] relative w-full hover:opacity-0 duration-300 ease-in"
+            sizes="(max-width: 768px) 100vw, 33vw"
+            quality={30}
+          />
+          <Image
+            src={images[srcSet[1]]}
+            alt="food image back"
+            width={300}
+            height={300}
+            className="h-auto absolute top-0 left-0 w-full duration-300 ease-in"
+            sizes="(max-width: 768px) 100vw, 33vw"
+            quality={30}
+          />
+        </>
+      )}
     </div>
   );
 };
