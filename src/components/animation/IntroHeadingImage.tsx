@@ -14,7 +14,6 @@ interface Props {
 export const IntroHeadingImage: React.FC<Props> = ({
   position,
   scrollYPosition,
-  ref,
 }) => {
   const isTop = position === "top";
   const isMiddle = position === "middle";
@@ -29,15 +28,14 @@ export const IntroHeadingImage: React.FC<Props> = ({
 
   return (
     <motion.div
-      ref={ref}
       className="w-full flex item-center justify-center"
       variants={introHeadingVariants}
       initial="hidden"
-      whileInView="shown"
+      animate="shown"
       transition={{
         duration: 0.2,
         ease: "easeIn",
-        delay: isTop ? 0 : isMiddle ? 0.3 : 0.6,
+        delay: isTop ? .3 : isMiddle ? 0.8 : 1.3,
       }}
       viewport={{ once: true }}
       style={{

@@ -3,14 +3,28 @@ import { Cart, CartModal, MenuModal } from ".";
 import { colors } from "../../styles/colors";
 import { useBodyClassName } from "../../hooks/useBodyClassName";
 import { AnimatePresence } from "framer-motion";
+import { useAppSelector } from "../../redux/hooks";
 
 interface Props {}
 
 export const Header: React.FC<Props> = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false)
   const bodyClassName = useBodyClassName();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const [textColor, setTextColor] = useState<string>(bodyClassName);
+  const [cartCount, setCartCount] = useState(0);
+
+  const tickets = useAppSelector((state) => state.cart.tickets);
+
+  const totalQuantity = tickets.reduce(
+    (acc, ticket) => acc + ticket.quantity,
+    0
+  );
+
+  useEffect(() => {
+    setCartCount(totalQuantity);
+  }, [totalQuantity]);
 
   useEffect(() => {
     setTextColor(() => {
@@ -43,12 +57,13 @@ export const Header: React.FC<Props> = () => {
         onClick={() => setCartOpen(true)}
       >
         <Cart color={textColor} />
+        {cartCount > 0 && <div className="cart-count text-[100%] min-w-[70%]">{cartCount}</div>}
       </button>
       <AnimatePresence>
         {menuOpen && <MenuModal setIsOpen={setMenuOpen} />}
-        {cartOpen && <CartModal setIsOpen={setCartOpen} /> }
+        {cartOpen && <CartModal setIsOpen={setCartOpen} />}
       </AnimatePresence>
-    </div> 
+    </div>
   );
 };
 

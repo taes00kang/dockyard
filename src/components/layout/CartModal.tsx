@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { motion, useAnimationControls } from "framer-motion";
-import { Modal, CloseIcon, ModalItem } from ".";
+import { Modal, CloseIcon } from ".";
 import { colors } from "../../styles/colors";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { rehydrate } from '../../redux/ticketSlice'
-import { RootState } from "../../redux/store";
+import { useAppSelector } from "../../redux/hooks";
 import TicketInCart from "./TicketInCart";
 
 interface Props {
@@ -16,7 +14,7 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
   const fadeIn = { x: 0 };
   const fadeOut = { x: 50 };
 
-  const tickets = useAppSelector((state: RootState) => state.cart.tickets);
+  const tickets = useAppSelector((state) => state.cart.tickets);
 
   useEffect(() => {
     controls.start(fadeIn);

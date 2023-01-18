@@ -9,14 +9,14 @@ AWS.config.update({
 
 const s3 = new AWS.S3();
 
-export const generatePresignedUrl = async (
+export const  generatePresignedUrl = async (
   bucket: string,
   key: string
 ): Promise<string> => {
   const params = {
     Bucket: bucket,
     Key: key,
-    Expires: 60*60,
+    Expires: 60 * 60,
   };
   return await s3.getSignedUrlPromise("getObject", params);
 };
@@ -31,12 +31,14 @@ export const getImageMap = async (bucket: string, path: string) => {
 
   if (isDataContent(data)) {
     const keys = data.Contents.map((o: AWS.S3.Object) => o.Key);
+
     for (const key of keys) {
       if (key) {
-        const url = await generatePresignedUrl(bucket, key);
         const prefix = path.substring(1) + "/";
         const modifiedKey = key.replace(prefix, "");
-        images[modifiedKey] = url;
+        await generatePresignedUrl(bucket, key).then((url) => {
+          images[modifiedKey] = url;
+        });
       }
     }
   }

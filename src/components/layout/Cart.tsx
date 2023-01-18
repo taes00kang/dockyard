@@ -7,7 +7,7 @@ interface Props {
 
 export const Cart: React.FC<Props> = ({ color }) => {
   const windowSize = useWindowSize();
-  
+
   const size = windowSize.width
     ? windowSize.width > 768
       ? windowSize.width * 0.03
@@ -15,7 +15,6 @@ export const Cart: React.FC<Props> = ({ color }) => {
     : 0;
 
   return (
-
     <svg
       width={size}
       height={size}
@@ -30,7 +29,6 @@ export const Cart: React.FC<Props> = ({ color }) => {
       <circle cx="11" cy="23" r="2" fill={color} />
       <circle cx="22" cy="23" r="2" fill={color} />
     </svg>
-
   );
 };
 

@@ -1,5 +1,5 @@
 import type { NextPageWithLayout } from "./_app";
-import type { GetServerSideProps, InferGetServerSidePropsType, GetStaticProps } from "next";
+import type { InferGetServerSidePropsType, GetStaticProps } from "next";
 import Head from "next/head";
 import { useEffect } from "react";
 import { colors } from "../styles/colors";
@@ -7,7 +7,7 @@ import { useInView } from "../hooks/useInView";
 import { getImageMap, ImageObject } from "../aws";
 
 // redux
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { useAppDispatch } from "../redux/hooks";
 import { rehydrate } from "../redux/ticketSlice";
 import { setImages } from "../redux/imageSlices";
 
@@ -40,7 +40,6 @@ const Home: NextPageWithLayout<
     dispatch(rehydrate());
     dispatch(setImages(images));
   }, []);
-
 
   return (
     <div>

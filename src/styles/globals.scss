@@ -287,3 +287,19 @@ circle {
         }
     }
 }
+
+.cart-count {
+    position: absolute;
+    top: -20%;
+    right: -15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: $fg;
+    color: $bg;
+    border-radius: 50%;
+    border: 2px solid $bg;
+    aspect-ratio: 1 / 1;
+    transition: all 0.3s ease-in;
+}

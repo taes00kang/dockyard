@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "./store";
 import { ImageObject } from "../aws";
 
 // Define a type for the slice state
@@ -21,7 +20,9 @@ export const imageSlice = createSlice({
   reducers: {
     setImages: (state, action: PayloadAction<ImageObject>) => {
       state.images = action.payload
-      state.isLoading = false
+      if(state.images !== initialState.images) {
+        state.isLoading = false
+      }
     },
   },
 });
