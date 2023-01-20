@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { chevronUpVariants } from "./variants";
-import { useImages } from "../../redux/hooks";
+import { getImage } from "../../utils";
 
 interface Props {
   id?: string;
@@ -19,7 +19,6 @@ export const ChevronMoveUp: React.FC<Props> = ({
   repeatDelay,
   type,
 }) => {
-  const { images, isLoading } = useImages();
   return (
     <motion.div
       id={id}
@@ -34,14 +33,12 @@ export const ChevronMoveUp: React.FC<Props> = ({
       }}
       className={"absolute aspect-[3/2] h-auto bottom-[-100vh] " + className}
     >
-      {!isLoading && (
-        <Image
-          src={images[`chevron-up${type === "large" ? "" : "-mini"}.svg`]}
-          fill
-          sizes={type === "large" ? "50vw" : "20vw"}
-          alt="chevron up"
-        />
-      )}
+      <Image
+        src={getImage(`home/chevron-up${type === "large" ? "" : "-mini"}.svg`)}
+        fill
+        sizes={type === "large" ? "50vw" : "20vw"}
+        alt="chevron up"
+      />
     </motion.div>
   );
 };

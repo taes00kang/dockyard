@@ -1,14 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { useImages } from "../../../redux/hooks";
+import { getImage } from "../../../utils";
 
-interface Props {}
-
-export const Section4: React.FC<Props> = () => {
+export const Section4: React.FC = () => {
   const [scrollTop, setScrollTop] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-
-  const { images, isLoading } = useImages();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,16 +45,14 @@ export const Section4: React.FC<Props> = () => {
             </div>
           </div>
           <div className="flex-1 flex justify-end">
-            {!isLoading && (
-              <div className="w-3/4 relative aspect-square border-[3px] border-black shadow-[11px_11px_0_0_#000]">
-                <Image
-                  src={images["map.jpeg"]}
-                  alt="location map"
-                  fill
-                  sizes="(max-width: 767px) 90vw, 34vw"
-                />
-              </div>
-            )}
+            <div className="w-3/4 relative aspect-square border-[3px] border-black shadow-[11px_11px_0_0_#000]">
+              <Image
+                src={getImage("home/map.jpeg")}
+                alt="location map"
+                fill
+                sizes="(max-width: 767px) 90vw, 34vw"
+              />
+            </div>
           </div>
         </div>
         <div className="flex my-[5vw] text-[1vw] leading-[1.42em] font-[300]">
@@ -85,15 +79,13 @@ export const Section4: React.FC<Props> = () => {
             transform: `translateX(${scrollTop}%)`,
           }}
         >
-          {!isLoading && (
-            <Image
-              src={images["arrows-black.svg"]}
-              width={300}
-              height={1000}
-              alt="arrow black"
-              className="h-auto mt-[15vw] relative -left-[150vw] w-[400vw] min-w-[350vw]"
-            />
-          )}
+          <Image
+            src={getImage("home/arrows-black.svg")}
+            width={300}
+            height={1000}
+            alt="arrow black"
+            className="h-auto mt-[15vw] relative -left-[150vw] w-[400vw] min-w-[350vw]"
+          />
         </div>
       </div>
     </section>

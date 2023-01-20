@@ -1,8 +1,6 @@
 import React from "react";
 
-interface Props {}
-
-export const Section5: React.FC<Props> = () => {
+export const Section5: React.FC = () => {
   return (
     <section id="theme-2">
       <div className="pt-[15vw] pb-[10vw] flex flex-col items-center justify-center text-[16px] tracking-wide leading-[24px]">

@@ -3,9 +3,7 @@ import { useQuery } from "react-query";
 import { ITicket } from "../../../interfaces";
 import { EventTicketList, WeekendTicketList } from ".";
 
-interface Props {}
-
-export const TicketList: React.FC<Props> = () => {
+export const TicketList: React.FC = () => {
   const { data, isLoading } = useQuery("getTickets", () =>
     fetch("/api/tickets").then((res) => res.json())
   );

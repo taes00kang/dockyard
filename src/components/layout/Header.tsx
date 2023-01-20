@@ -5,9 +5,7 @@ import { useBodyClassName } from "../../hooks/useBodyClassName";
 import { AnimatePresence } from "framer-motion";
 import { useAppSelector } from "../../redux/hooks";
 
-interface Props {}
-
-export const Header: React.FC<Props> = () => {
+export const Header: React.FC = () => {
   const bodyClassName = useBodyClassName();
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,7 +28,7 @@ export const Header: React.FC<Props> = () => {
     setTextColor(() => {
       switch (bodyClassName) {
         case "theme-2-inview":
-          return colors["theme2"].text;
+          return colors.theme2.text;
         case "theme-3-inview":
           return colors.theme3.text;
         case "theme-4-inview":
@@ -57,7 +55,14 @@ export const Header: React.FC<Props> = () => {
         onClick={() => setCartOpen(true)}
       >
         <Cart color={textColor} />
-        {cartCount > 0 && <div className="cart-count text-[100%] min-w-[70%]">{cartCount}</div>}
+        {cartCount > 0 && (
+          <>
+            <div className="cart-count absolute hidden md:flex items-center justify-center cart-count -top-[30%] -right-[20%] font-bold text-[1.3vw] min-w-[80%] aspect-square">
+              {cartCount}
+            </div>
+            <div className="absolute cart-count block md:hidden -top-[5%] -right-[5%] min-w-[1.3vw] h-[1.3vw] " />
+          </>
+        )}
       </button>
       <AnimatePresence>
         {menuOpen && <MenuModal setIsOpen={setMenuOpen} />}

@@ -3,8 +3,7 @@ import { ITicket } from "../../../interfaces";
 
 import { BlockHeading } from "../../layout";
 import { Ticket } from ".";
-import { getMonths, sortTicketsByMonth } from "../../../utils";
-import { formatMonth } from "../../../utils/index";
+import { getMonths, sortTicketsByMonth, formatMonth } from "../../../utils";
 
 interface Props {
   tickets: ITicket[];

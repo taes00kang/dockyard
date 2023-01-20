@@ -16,6 +16,8 @@ $fg: var(--fg);
     background-color: $bgColor;
 }
 
+
+
 html,
 body {
     padding: 0;
@@ -289,17 +291,9 @@ circle {
 }
 
 .cart-count {
-    position: absolute;
-    top: -20%;
-    right: -15%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
     background-color: $fg;
     color: $bg;
     border-radius: 50%;
-    border: 2px solid $bg;
-    aspect-ratio: 1 / 1;
+    border: .2vw solid $bg;
     transition: all 0.3s ease-in;
 }

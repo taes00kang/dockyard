@@ -40,7 +40,7 @@ export const cartSlice = createSlice({
 
       cacheState(state);
     },
-    removeFromCart: (state, action: PayloadAction<number>) => {
+    removeFromCart: (state, action: PayloadAction<string>) => {
       const existingTicket = state.tickets.find(
         (ticket) => ticket.id === action.payload
       );
@@ -54,7 +54,7 @@ export const cartSlice = createSlice({
     },
     updateQuantity: (
       state,
-      action: PayloadAction<{ id: number; quantity: number }>
+      action: PayloadAction<{ id: string; quantity: number }>
     ) => {
       state.tickets = state.tickets.map((ticket) => {
         if (ticket.id === action.payload.id) {

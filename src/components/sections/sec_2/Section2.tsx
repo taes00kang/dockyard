@@ -1,15 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import { getImage } from "../../../utils";
+
+//components
 import { FadeInDiv } from "../../animation";
 import { CTA } from "../../layout";
 import FoodImage from "./FoodImage";
-import { useImages } from "../../../redux/hooks";
 
-interface Props {}
-
-export const Section2: React.FC<Props> = () => {
-  const { images, isLoading } = useImages();
-
+export const Section2: React.FC = () => {
   return (
     <section id="theme-2">
       {/* Sec-2-1 */}
@@ -20,20 +18,18 @@ export const Section2: React.FC<Props> = () => {
               IT'S MORE THAN THAT THOUGH
             </FadeInDiv>
             <div className="relative w-full flex justify-between">
-              {!isLoading && (
-                <Image
-                  className="absolute block h-auto -left-[5vw] w-[6vw] aspect-[3/11]"
-                  src={images["blue-dots.svg"]}
-                  alt="blue dots"
-                  width={100}
-                  height={500}
-                  style={{
-                    objectFit: "cover",
-                    backgroundRepeat: "no-repeat",
-                    objectPosition: "16% 0px",
-                  }}
-                />
-              )}
+              <Image
+                className="absolute block h-auto -left-[5vw] w-[6vw] aspect-[3/11]"
+                src={getImage("home/blue-dots.svg")}
+                alt="blue dots"
+                width={100}
+                height={500}
+                style={{
+                  objectFit: "cover",
+                  backgroundRepeat: "no-repeat",
+                  objectPosition: "16% 0px",
+                }}
+              />
               <div className="mt-[1.5vw] px-[5vw] text-[1.3vw] font-[400] leading-[1.42rem] flex flex-col">
                 <FadeInDiv>
                   <p>
@@ -62,20 +58,18 @@ export const Section2: React.FC<Props> = () => {
             </div>
           </div>
           <div className="flex-1">
-            {!isLoading && (
-              <FadeInDiv className="relative w-full flex justify-end items-center">
-                <Image
-                  src={images["laughing-lady.jpeg"]}
-                  alt="laughing lady"
-                  width={300}
-                  height={300}
-                  className="h-auto w-full aspect-square border-[5px] border-brand-theme2-text shadow-brand-theme2-text shadow-[11px_11px_0_0]"
-                />
-                <div className="absolute uppercase left-0 top-0 px-[1vw] py-[0.3vw] bg-brand-theme2-text text-brand-theme2-bg text-[2.5vw] leading-[3vw] font-bold -translate-x-[34px] -rotate-[11deg]">
-                  just look how <br /> happy she is!**
-                </div>
-              </FadeInDiv>
-            )}
+            <FadeInDiv className="relative w-full flex justify-end items-center">
+              <Image
+                src={getImage("home/laughing-lady.jpeg")}
+                alt="laughing lady"
+                width={300}
+                height={300}
+                className="h-auto w-full aspect-square border-[5px] border-brand-theme2-text shadow-brand-theme2-text shadow-[11px_11px_0_0]"
+              />
+              <div className="absolute uppercase left-0 top-0 px-[1vw] py-[0.3vw] bg-brand-theme2-text text-brand-theme2-bg text-[2.5vw] leading-[3vw] font-bold -translate-x-[34px] -rotate-[11deg]">
+                just look how <br /> happy she is!**
+              </div>
+            </FadeInDiv>
           </div>
         </div>
         {/* Sec-2-2 */}
@@ -121,15 +115,13 @@ export const Section2: React.FC<Props> = () => {
           </div>
         </div>
         <div className="overflow-hidden">
-          {!isLoading && (
-            <Image
-              src={images["stripes-light.svg"]}
-              width={1000}
-              height={100}
-              alt="light red stripe line"
-              className="w-[200vw] min-w-[500vw]"
-            />
-          )}
+          <Image
+            src={getImage("home/stripes-light.svg")}
+            width={1000}
+            height={100}
+            alt="light red stripe line"
+            className="w-[200vw] min-w-[500vw]"
+          />
         </div>
       </div>
     </section>

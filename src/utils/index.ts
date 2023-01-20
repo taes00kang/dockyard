@@ -90,3 +90,7 @@ export const sortTicketsByMonth = (months:number[], tickets: ITicket[]) => {
 
   return list;
 };
+
+export const getImage = (fileName: string) => {
+  return "https://dd2i0p7y69k4h.cloudfront.net/images/" + fileName
+}

@@ -4,8 +4,8 @@ import { CTA } from "../../layout";
 import { FadeInDiv } from "../../animation";
 import HorizontalLine from "./HorizontalLine";
 import { ITicket } from "../../../interfaces";
-import { getDate } from "../../../utils";
-import { useAppDispatch, useImages } from "../../../redux/hooks";
+import { getDate, getImage } from "../../../utils";
+import { useAppDispatch } from "../../../redux/hooks";
 import { addToCart } from "../../../redux/ticketSlice";
 
 export const Ticket: React.FC<ITicket> = ({
@@ -20,7 +20,6 @@ export const Ticket: React.FC<ITicket> = ({
   const message = "treat yo self";
 
   const dispatch = useAppDispatch();
-  const { images, isLoading } = useImages();
 
   return (
     <li className="w-full flex flex-col">
@@ -85,15 +84,13 @@ export const Ticket: React.FC<ITicket> = ({
             ) : (
               <div />
             )}
-            {!isLoading && (
-              <Image
-                src={images["stripes-cyan.svg"]}
-                alt="Ticket Chevron"
-                width={400}
-                height={100}
-                className="h-auto w-1/2 py-[2.5vw] translate-x-[3.5vw]"
-              />
-            )}
+            <Image
+              src={getImage("home/stripes-cyan.svg")}
+              alt="Ticket Chevron"
+              width={400}
+              height={100}
+              className="h-auto w-1/2 py-[2.5vw] translate-x-[3.5vw]"
+            />
           </div>
         </FadeInDiv>
       </div>

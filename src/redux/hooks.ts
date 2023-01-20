@@ -5,8 +5,8 @@ import type { RootState, AppDispatch } from './store'
 export const useAppDispatch: () => AppDispatch = useDispatch
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
-export const useImages = () => {
-    const images = useAppSelector(state => state.images.images)
-    const isLoading = useAppSelector(state => state.images.isLoading)
-    return { images, isLoading }
-}
+// export const useImages = () => {
+//     const images = useAppSelector(state => state.images.images)
+//     const isLoading = useAppSelector(state => state.images.isLoading)
+//     return { images, isLoading }
+// }

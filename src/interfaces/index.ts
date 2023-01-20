@@ -1,5 +1,5 @@
 export interface ITicket {
-    id: number
+    id: string;
     type: "weekend"| "event" | "voucher";
     title: string;
     price: number;
