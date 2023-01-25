@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimationControls } from "framer-motion";
 import { Modal, ModalItem } from ".";
+import { scrollToSection } from '../../utils'
 
 interface Props {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -33,6 +34,7 @@ export const MenuModal: React.FC<Props> = ({ setIsOpen }) => {
           <ModalItem
             itemClassName="flex-1"
             contentClassName="w-2/3 py-[3%] px-[2%]"
+            onClick={()=> scrollToSection("theme-3")}
           >
             <h1 className="modal-item__heading">Eat well</h1>
             <h1 className="modal-item__heading">Drink well</h1>
@@ -41,6 +43,8 @@ export const MenuModal: React.FC<Props> = ({ setIsOpen }) => {
           <ModalItem
             itemClassName="flex-1"
             contentClassName="w-2/3 py-[3%] px-[2%]"
+            onClick={()=> scrollToSection("list-weekend")}
+
           >
             <h1 className="modal-item__heading">Every Ticket</h1>
             <h1 className="modal-item__heading">$10</h1>
@@ -49,7 +53,10 @@ export const MenuModal: React.FC<Props> = ({ setIsOpen }) => {
             </p>
           </ModalItem>
 
-          <ModalItem itemClassName="flex-1" contentClassName="w-2/3 py-[6%]">
+          <ModalItem itemClassName="flex-1" contentClassName="w-2/3 py-[6%]"
+            onClick={()=> scrollToSection("address")}
+          
+          >
             <div className="w-full flex flex-col items-center justify-center">
               <h1 className="modal-item__heading location -translate-x-[10%] rotate-3">
                 Where to

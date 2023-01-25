@@ -23,24 +23,24 @@ export const Ticket: React.FC<ITicket> = ({
 
   return (
     <li className="w-full flex flex-col">
-      <div className="w-full flex gap-[6vw] items-center justify-between">
+      <div className="w-full flex flex-col-reverse sm:flex-row gap-[6vw] items-center justify-between">
         <div className="flex flex-1 flex-col ">
-          <FadeInDiv once>
+          <FadeInDiv className="flex w-full" once>
             <h1 className="ticket-heading mb-[1.5vw]">{title}</h1>
           </FadeInDiv>
           {type === "voucher" && (
             <FadeInDiv
               once
-              className="text-[2vw] leading-[2.5vw] tracking-wide pb-[2vw]"
+              className="text-[3vw] leading-[3.5vw] sm:text-[2vw] sm:leading-[2.5vw] tracking-wide pb-[2vw]"
             >
               Feel like treating your friends and fam to a bit of the Dockyard
               life? We offer gift vouchers that range from $25 to $100 which can
               be redeemed in the venue against entry and food tokens!
             </FadeInDiv>
           )}
-          <div>
+          <div className="mt-[4vw] sm:mt-0 flex justify-center  sm:justify-start">
             <CTA
-              text="Buy now"
+              text="Add to Cart"
               theme="theme3"
               onClick={() =>
                 dispatch(
@@ -60,16 +60,16 @@ export const Ticket: React.FC<ITicket> = ({
         </div>
         <FadeInDiv
           once
-          className="flex-1 w-full p-[1%] border-2 border-brand-theme3-text shadow-brand-theme3-text shadow-[.5vw_.5vw] overflow-hidden"
+          className="flex-1 flex flex-col gap-[4vw] sm:gap-0 w-full p-[2%] sm:p-[1%] border-2 border-brand-theme3-text shadow-brand-theme3-text shadow-[.5vw_.5vw] overflow-hidden"
         >
-          <div className="w-full flex justify-between">
+          <div className="w-full flex items-center justify-between">
             <h1 className="ticket-heading">
               <span className="cyan-stroke">
                 {type === "voucher" ? "Gift " : "Entry "}
               </span>
               {type === "voucher" ? "Voucher" : "Ticket"}
             </h1>
-            <h1 className="ticket-heading price">
+            <h1 className="ticket-heading price ">
               {price.toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
@@ -78,14 +78,15 @@ export const Ticket: React.FC<ITicket> = ({
           </div>
           <div className="w-full flex items-center justify-between">
             {type === "voucher" || date ? (
-              <h2 className="uppercase text-[2.5vw] leading-[3vw] font-bold tracking-tight">
+              <h2 className="uppercase text-[4vw] sm:text-[2.5vw] leading-[3vw] font-bold tracking-tight">
                 {type === "voucher" ? message : date}
               </h2>
             ) : (
               <div />
             )}
             <Image
-              src={getImage("home/stripes-cyan.svg")}
+              // src={getImage("home/stripes-cyan.svg")}
+              src={"/assets/stripes-cyan.svg"}
               alt="Ticket Chevron"
               width={400}
               height={100}
@@ -94,7 +95,7 @@ export const Ticket: React.FC<ITicket> = ({
           </div>
         </FadeInDiv>
       </div>
-      <HorizontalLine className="py-[5vw]" />
+      <HorizontalLine className="py-[10vw] sm:py-[5vw]" />
     </li>
   );
 };

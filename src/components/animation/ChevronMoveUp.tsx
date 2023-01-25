@@ -34,7 +34,8 @@ export const ChevronMoveUp: React.FC<Props> = ({
       className={"absolute aspect-[3/2] h-auto bottom-[-100vh] " + className}
     >
       <Image
-        src={getImage(`home/chevron-up${type === "large" ? "" : "-mini"}.svg`)}
+        // src={getImage(`home/chevron-up${type === "large" ? "" : "-mini"}.svg`)}
+        src={`/assets/chevron-up${type === "large" ? "" : "-mini"}.svg`}
         fill
         sizes={type === "large" ? "50vw" : "20vw"}
         alt="chevron up"

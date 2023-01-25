@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { FadeInDiv } from "../../animation";
 import { AnimatePresence } from "framer-motion";
 import { SlideTag } from "./types";
-import { SlideButton, SlideContent } from ".";
+import { RollerButton, SlideContent, TabButtons } from ".";
+import { useWindowSize } from "../../../hooks/useWindowSize";
 
 export const TheSpace: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState<SlideTag>("info");
@@ -12,19 +13,23 @@ export const TheSpace: React.FC = () => {
     "hire",
     "training",
   ];
+
+  const { width } = useWindowSize();
+
   return (
-    <div className="the-space relative w-full px-[5%] pb-[10%] ">
+    <div className="the-space relative w-full px-[1%] sm:px-[5%] pb-[10%] ">
       <div className="the-space__heading cyan-stroke flex flex-col w-full items-center">
-        <FadeInDiv once className="leading-[30vw]">
+        <FadeInDiv once className="leading-[46vw] sm:leading-[30vw]">
           THE
         </FadeInDiv>
-        <FadeInDiv once className="leading-[0] -mt-[3.5vw]">
+        <FadeInDiv once className="leading-[0] sm:-mt-[3.5vw]">
           SPACE
         </FadeInDiv>
       </div>
-      <FadeInDiv className="w-full h-[40vw] relative">
+      <FadeInDiv className="w-full mt-[12vw] h-auto sm:mt-0 sm:h-[40vw] static sm:relative">
+        <TabButtons currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />
         <div
-          className={`slide z-[3] top-[8vw] px-[3vw] py-[2vw] ${
+          className={`slide flex z-[3] top-[8vw] px-[3vw] py-[6vw] sm:py-[2vw] ${
             currentSlide === "hire" && "fill"
           }`}
         >
@@ -39,7 +44,7 @@ export const TheSpace: React.FC = () => {
             </AnimatePresence>
           </div>
           <div className="slide__text-block z-[6]">
-            <SlideButton
+            <RollerButton
               presetTag="info"
               currentSlide={currentSlide}
               setCurrentSlide={setCurrentSlide}
@@ -49,12 +54,12 @@ export const TheSpace: React.FC = () => {
           <div className="slide__triangle left-[4vw]" />
         </div>
         <div
-          className={`slide z-[2] top-[9vw] left-[1.5vw] ${
+          className={`slide hidden sm:flex z-[2] top-[9vw] left-[1.5vw] ${
             currentSlide !== "hire" && "fill"
           }`}
         >
           <div className="slide__text-block z-[6] w-[26vw]">
-            <SlideButton
+            <RollerButton
               presetTag="hire"
               currentSlide={currentSlide}
               setCurrentSlide={setCurrentSlide}
@@ -63,9 +68,9 @@ export const TheSpace: React.FC = () => {
           </div>
           <div className="slide__triangle left-[17vw]" />
         </div>
-        <div className="slide z-[1] top-[10vw] left-[3vw]">
+        <div className="slide hidden sm:flex z-[1] top-[10vw] left-[3vw]">
           <div className="slide__text-block z-[6] w-[40vw]">
-            <SlideButton
+            <RollerButton
               presetTag="training"
               currentSlide={currentSlide}
               setCurrentSlide={setCurrentSlide}

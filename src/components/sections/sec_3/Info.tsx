@@ -2,7 +2,7 @@ import React from "react";
 
 export const Info: React.FC = () => {
   return (
-    <p className="leading-[2vw] text-[1.5vw] tracking-wide pb-[5vw]">
+    <p className="leading-[4vw] sm:leading-[2vw] text-[3vw] sm:text-[1.5vw] tracking-wide pb-[5vw]">
       need to know...
       <br />
       Our normal trading hours

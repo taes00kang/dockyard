@@ -17,7 +17,7 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
       return (
         <motion.div
           id="slide-info"
-          className="grid grid-cols-2 w-full h-full gap-4 lg:gap-7 text-[1.1vw]"
+          className="flex flex-col sm:grid grid-cols-2 w-full h-full gap-4 lg:gap-7 text-[1.1vw]"
           initial="initial"
           animate="animate"
           exit="exit"
@@ -28,11 +28,12 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
             <h1 className="info-heading">THE COMMUNITY.</h1>
           </div>
           <Image
-            src={getImage("home/arrows-cyan.svg")}
+            // src={getImage("home/arrows-cyan.svg")}
+            src={"/assets/arrows-cyan.svg"}
             alt="arrow cyan"
             width={200}
             height={50}
-            className="w-full h-auto"
+            className="w-full h-auto sm:block hidden"
           />
           <p>
             Located on the footprint of one of Glasgow’s world-renowned naval
@@ -91,7 +92,8 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
           </div>
           <div className="flex w-full items-center justify-center">
             <Image
-              src={getImage("home/interior.png")}
+              // src={getImage("home/interior.png")}
+              src={"/assets/interior.png"}
               alt="interior map"
               width={500}
               height={400}
@@ -115,7 +117,8 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
             <h1 className="info-heading">of learning.</h1>
           </div>
           <Image
-            src={getImage("home/arrows-cyan.svg")}
+            // src={getImage("home/arrows-cyan.svg")}
+            src={"/assets/arrows-cyan.svg"}
             alt="arrow cyan"
             width={200}
             height={50}

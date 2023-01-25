@@ -42,7 +42,8 @@ export const IntroHeadingImage: React.FC<Props> = ({
     >
       <Image
         alt="intro box"
-        src={getImage(`home/text-block-${isTop ? 1 : isMiddle ? 2 : 3}.svg`)}
+        // src={getImage(`home/text-block-${isTop ? 1 : isMiddle ? 2 : 3}.svg`)}
+        src={`/assets/text-block-${isTop ? 1 : isMiddle ? 2 : 3}.svg`}
         width={300}
         height={200}
         className={"w-[85%] sm:w-[70%] md:w-[50%] h-auto " + imageClassName}

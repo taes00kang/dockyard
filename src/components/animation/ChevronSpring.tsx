@@ -16,7 +16,8 @@ export const ChevronSpring: React.FC = () => {
     >
       <Image
         alt="chevron down"
-        src={getImage("home/chevron-down.svg")}
+        // src={getImage("home/chevron-down.svg")}
+        src={"/assets/chevron-down.svg"}
         width={300}
         height={200}
       />

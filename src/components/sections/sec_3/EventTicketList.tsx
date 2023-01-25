@@ -23,7 +23,7 @@ export const EventTicketList: React.FC<Props> = ({ tickets }) => {
             <BlockHeading
               text={formatMonth(month)}
               theme="theme3"
-              className="mb-[7vw]"
+              className="mb-[10vw] sm:mb-[7vw]"
             />
             {tickets.map((ticket, idx) => (
               <Ticket

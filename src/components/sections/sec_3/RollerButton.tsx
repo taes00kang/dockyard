@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { SlideTag } from "./types";
 
@@ -9,7 +9,7 @@ interface Props {
   slideTags: [SlideTag, SlideTag, SlideTag];
 }
 
-export const SlideButton: React.FC<Props> = ({
+export const RollerButton: React.FC<Props> = ({
   currentSlide,
   setCurrentSlide,
   presetTag,
@@ -64,4 +64,4 @@ export const SlideButton: React.FC<Props> = ({
   );
 };
 
-export default SlideButton;
+export default RollerButton;

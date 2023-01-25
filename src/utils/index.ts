@@ -7,7 +7,7 @@ export const getDate = (
 ): string | null => {
   let dayLong = null;
   let monthLong = null;
-  
+
   if (day) {
     if (day < 1 && day > 31) {
       throw Error("Incorrect date value.");
@@ -62,21 +62,21 @@ const isNumber = (argument: number | null | undefined): argument is number => {
 };
 
 const getValidMonths = (months: (number | null | undefined)[]) => {
-    const valid_months: number[] = months.filter(isNumber)
+  const valid_months: number[] = months.filter(isNumber);
 
-    return valid_months
-}
+  return valid_months;
+};
 
 export const getMonths = (tickets: ITicket[]): number[] => {
   const months_array = tickets.map((ticket) => ticket.month);
-  const valid_months = getValidMonths(months_array)
+  const valid_months = getValidMonths(months_array);
 
   const unique_months = Array.from(new Set(valid_months));
 
   return unique_months;
 };
 
-export const sortTicketsByMonth = (months:number[], tickets: ITicket[]) => {
+export const sortTicketsByMonth = (months: number[], tickets: ITicket[]) => {
   let list: [number, ITicket[]][] = [];
 
   months.forEach((month) => {
@@ -92,5 +92,16 @@ export const sortTicketsByMonth = (months:number[], tickets: ITicket[]) => {
 };
 
 export const getImage = (fileName: string) => {
-  return "https://dd2i0p7y69k4h.cloudfront.net/images/" + fileName
-}
+  return "https://dd2i0p7y69k4h.cloudfront.net/images/" + fileName;
+};
+
+export const scrollToSection = (id: string) => {
+  const secId = document.getElementById(id);
+  console.log(id);
+  
+  if (secId)
+    window.scrollTo({
+      top: secId.offsetTop,
+      behavior: "smooth",
+    });
+};
