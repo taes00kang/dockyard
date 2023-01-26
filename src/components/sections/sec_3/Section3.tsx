@@ -1,16 +1,12 @@
-
 // components
 import { BlockHeading } from "../../layout";
 import { FadeInDiv } from "../../animation";
 import { Info, HorizontalLine, TicketList, TheSpace } from ".";
 
 export const Section3: React.FC = () => {
-
-
   return (
     <section id="theme-3">
-      <div className="w-full pt-[13vw] pb-[8vw] px-[5%]"
-      >
+      <div className="w-full pt-[13vw] pb-[8vw] px-[5%]">
         <FadeInDiv once>
           <BlockHeading
             theme="theme3"
@@ -23,10 +19,7 @@ export const Section3: React.FC = () => {
         <TicketList />
       </div>
       <TheSpace />
-      <div className="flex items-center justify-center flex-col py-[15vw]" id="address">
-        <div className="heading-theme-4 top">Where to</div>
-        <div className="heading-theme-4 bottom">Find us</div>
-      </div>
+      
     </section>
   );
 };

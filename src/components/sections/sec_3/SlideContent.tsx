@@ -12,12 +12,14 @@ interface Props {
 }
 
 export const SlideContent: React.FC<Props> = ({ slideTag }) => {
+  const CLASSNAME =
+    "flex flex-col sm:grid grid-cols-2 w-full h-full gap-4 lg:gap-7 text-[4vw] sm:text-[1.1vw] leading-[6.5vw] sm:leading-[2vw]";
   switch (slideTag) {
     case "info":
       return (
         <motion.div
           id="slide-info"
-          className="flex flex-col sm:grid grid-cols-2 w-full h-full gap-4 lg:gap-7 text-[1.1vw]"
+          className={CLASSNAME}
           initial="initial"
           animate="animate"
           exit="exit"
@@ -27,14 +29,7 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
             <h1 className="info-heading">WE'RE ALL ABOUT</h1>
             <h1 className="info-heading">THE COMMUNITY.</h1>
           </div>
-          <Image
-            // src={getImage("home/arrows-cyan.svg")}
-            src={"/assets/arrows-cyan.svg"}
-            alt="arrow cyan"
-            width={200}
-            height={50}
-            className="w-full h-auto sm:block hidden"
-          />
+          <ArrowImage />
           <p>
             Located on the footprint of one of Glasgow’s world-renowned naval
             engineering facilities, now stands a converted West End industrial
@@ -67,7 +62,7 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
       return (
         <motion.div
           id="slide-hire"
-          className="grid grid-cols-2 w-full h-full gap-4 text-[1.1vw]"
+          className={CLASSNAME}
           initial="initial"
           animate="animate"
           exit="exit"
@@ -88,7 +83,9 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
               bespoke basis with a personal event co-ordinator. Wanna hire us
               out for the night!?
             </p>
-            <CTA text="get in touch" theme="theme3_reverse" />
+            <div className="my-[8vw]">
+              <CTA text="get in touch" theme="theme3_reverse" />
+            </div>
           </div>
           <div className="flex w-full items-center justify-center">
             <Image
@@ -106,7 +103,7 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
       return (
         <motion.div
           id="slide-info"
-          className="grid grid-cols-2 w-full h-full gap-4 lg:gap-7 text-[1.1vw]"
+          className={CLASSNAME}
           initial="initial"
           animate="animate"
           exit="exit"
@@ -116,14 +113,8 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
             <h1 className="info-heading">A new way</h1>
             <h1 className="info-heading">of learning.</h1>
           </div>
-          <Image
-            // src={getImage("home/arrows-cyan.svg")}
-            src={"/assets/arrows-cyan.svg"}
-            alt="arrow cyan"
-            width={200}
-            height={50}
-            className="w-full h-auto"
-          />
+          <ArrowImage />
+
           <p>
             Whether you’re a brand-new business finding your feet, or have
             fallen on hard times, we want to build a facility to help equip you
@@ -156,6 +147,19 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
     default:
       return <></>;
   }
+};
+
+const ArrowImage: React.FC = () => {
+  return (
+    <Image
+      // src={getImage("home/arrows-cyan.svg")}
+      src={"/assets/arrows-cyan.svg"}
+      alt="arrow cyan"
+      width={200}
+      height={50}
+      className="w-full h-auto sm:block hidden"
+    />
+  );
 };
 
 export default SlideContent;

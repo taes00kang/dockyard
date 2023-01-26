@@ -5,11 +5,11 @@ import { BlockHeading } from "../../layout";
 import { Ticket } from ".";
 
 interface Props {
-  tickets: ITicket[];
+  tickets: ITicket[] | undefined;
 }
 
 export const WeekendTicketList: React.FC<Props> = ({ tickets }) => {
-  return (
+  return tickets ? (
     <div>
       <BlockHeading
         theme="theme3"
@@ -30,6 +30,8 @@ export const WeekendTicketList: React.FC<Props> = ({ tickets }) => {
         ))}
       </ul>
     </div>
+  ) : (
+    <></>
   );
 };
 

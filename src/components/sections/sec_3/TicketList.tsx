@@ -1,29 +1,44 @@
-import React from "react";
-import { useQuery } from "react-query";
+import React, { useState, useEffect } from "react";
 import { ITicket } from "../../../interfaces";
 import { EventTicketList, WeekendTicketList } from ".";
 
 export const TicketList: React.FC = () => {
-  const { data, isLoading } = useQuery("getTickets", () =>
-    fetch("/api/tickets").then((res) => res.json())
-  );
-  if (isLoading) {
+  const [tickets, setTickets] = useState<{
+    weekend: ITicket[];
+    event: ITicket[];
+  } | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const getTickets = () => {
+      setLoading(true);
+      fetch("/api/tickets")
+        .then((res) => res.json())
+        .then((data: ITicket[]) => {
+          const tickets_weekend: ITicket[] = [];
+          const tickets_event: ITicket[] = [];
+
+          data.forEach((t) => {
+            t.type === "event"
+              ? tickets_event.push(t)
+              : tickets_weekend.push(t);
+          });
+          setTickets({ weekend: tickets_weekend, event: tickets_event });
+          setLoading(false);
+        });
+    };
+
+    getTickets();
+  }, []);
+
+  if (loading) {
     return <></>;
   }
 
-  let tickets_weekend: ITicket[] = [];
-  let tickets_event: ITicket[] = [];
-
-  const tickets: ITicket[] = data;
-
-  tickets.forEach((t) => {
-    t.type === "event" ? tickets_event.push(t) : tickets_weekend.push(t);
-  });
-
   return (
     <>
-      <WeekendTicketList tickets={tickets_weekend} />
-      <EventTicketList tickets={tickets_event} />
+      <WeekendTicketList tickets={tickets?.weekend} />
+      <EventTicketList tickets={tickets?.event} />
     </>
   );
 };

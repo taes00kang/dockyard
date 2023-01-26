@@ -13,7 +13,7 @@ export const Section5: React.FC = () => {
         </a>
         <div>Or...</div>
         <div className="insta-section-heading">JOIN OUR MAILING LIST?</div>
-        <div className="w-[40%] h-[60px] my-[2%] border-2 border-brand-theme2-text">
+        <div className="w-[80%] md:w-[40%] h-[60px] my-[5%] sm:my-[2%] border-2 border-brand-theme2-text">
           <form className="flex w-full h-full" action="">
             <input
               className="w-full bg-transparent px-[12px] py-[8px] placeholder:text-brand-theme2-text"

@@ -6,32 +6,32 @@ import {
   IntroHeadingImage,
   ChevronSpring,
 } from "../../animation";
+import { scrollToSection } from "../../../utils";
+import { useScrollPosition } from "../../../hooks/useScrollPosition";
 
 export const Section1: React.FC = () => {
-  const [scrollYPosition, setScrollYPosition] = useState(0);
+  const [translateValue, setTranslateValue] = useState(0);
 
   const ref = useRef<HTMLDivElement>(null);
 
+  const scrollPosition = useScrollPosition(ref);
+
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > ref.current!.offsetTop) {
-        const translateValue = (window.scrollY - ref.current!.offsetTop) / 5;
-        // prevent translate value to be over 200%
-        if (translateValue < 200) {
-          setScrollYPosition(translateValue);
-        }
-      } else {
-        // prevent negative value of scroll postion
-        setScrollYPosition(0);
-      }
-    };
-    if (window !== undefined && ref.current) {
-      window.addEventListener("scroll", handleScroll);
+    // transition value for intro headings animation.
+    const velocity = scrollPosition / 5;
+    if (velocity < 200) {
+      setTranslateValue(velocity);
     }
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+
+    // If window's top offset hits the top of document, set transition value to 0.
+    // To resolve the issue that listener can't properly track changes in scrollPosition when user scrolls up too quickly.
+    window.addEventListener("scroll", () => {
+      if (window.scrollY === 0) {
+          setTranslateValue(0)
+      }
+  });
+    
+  }, [scrollPosition]);
 
   return (
     <section id="theme-1">
@@ -40,21 +40,22 @@ export const Section1: React.FC = () => {
         <div className="dots-and-info relative w-full h-full pb-[2%] bg-[length:60%] md:bg-[length:40%] bg-[100%_2%] sm:bg-[99%_90%] flex flex-col items-center sm:items-start justify-end ">
           <div className="flex flex-col w-full justify-center pt-[10%] md:h-[45vw]">
             <div ref={ref} />
+            <IntroHeadingImage translateValue={translateValue} position="top" />
             <IntroHeadingImage
-              scrollYPosition={scrollYPosition}
-              position="top"
-            />
-            <IntroHeadingImage
-              scrollYPosition={scrollYPosition}
+              translateValue={translateValue}
               position="middle"
             />
             <IntroHeadingImage
-              scrollYPosition={scrollYPosition}
+              translateValue={translateValue}
               position="bottom"
             />
           </div>
           <div className="md:static sm:absolute left-0 bottom-[-15%] sm:mt-0 mt-[15%]">
-            <CTA text="free cocktail here" theme="theme1" />
+            <CTA
+              text="free cocktail here"
+              theme="theme1"
+              onClick={() => scrollToSection("list-weekend")}
+            />
           </div>
           <ChevronSpring />
         </div>

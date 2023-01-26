@@ -6,13 +6,13 @@ import { getImage } from "../../utils";
 
 interface Props {
   position: "top" | "middle" | "bottom";
-  scrollYPosition: number;
+  translateValue: number;
   ref?: React.RefObject<HTMLDivElement>;
 }
 
 export const IntroHeadingImage: React.FC<Props> = ({
   position,
-  scrollYPosition,
+  translateValue,
 }) => {
   const isTop = position === "top";
   const isMiddle = position === "middle";
@@ -25,6 +25,7 @@ export const IntroHeadingImage: React.FC<Props> = ({
 
   return (
     <motion.div
+      data-testid={`intro-heading-${position}`}
       className="w-full flex item-center justify-center"
       variants={introHeadingVariants}
       initial="hidden"
@@ -32,11 +33,11 @@ export const IntroHeadingImage: React.FC<Props> = ({
       transition={{
         duration: 0.2,
         ease: "easeIn",
-        delay: isTop ? 0 : isMiddle ? .5 : 1,
+        delay: isTop ? 0 : isMiddle ? 0.5 : 1,
       }}
       viewport={{ once: true }}
       style={{
-        translateX: `${isMiddle ? scrollYPosition : scrollYPosition * -1}%`,
+        translateX: `${isMiddle ? translateValue : translateValue * -1}%`,
         zIndex: isTop ? 1 : isMiddle ? 2 : 3,
       }}
     >

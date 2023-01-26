@@ -1,20 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-export function useScrollPosition(ref: React.RefObject<HTMLElement>) {
+export function useScrollPosition(ref: React.RefObject<HTMLDivElement>) {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollPosition(ref.current!.scrollTop);
+      if (window.scrollY > ref.current!.offsetTop) {
+        setScrollPosition(window.scrollY - ref.current!.offsetTop);
+      }
     };
-
-    ref.current!.addEventListener('scroll', handleScroll);
-
-    return () => {
-      ref.current!.removeEventListener('scroll', handleScroll);
-    };
-  }, [ref]);
+    if (window !== undefined && ref.current) {
+      window.addEventListener("scroll", handleScroll);
+    }
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return scrollPosition;
 }
-

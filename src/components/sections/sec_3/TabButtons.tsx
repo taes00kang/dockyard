@@ -11,10 +11,10 @@ export const TabButtons: React.FC<Props> = ({
   setCurrentSlide,
 }) => {
   return (
-    <div className="flex sm:hidden w-full h-[16vw] bg-brand-theme3-bg text-[5vw]">
+    <div className="flex sm:hidden w-full h-[12vw] bg-brand-theme3-bg text-[5vw] transition-all ease-in duration-300">
       <button
         onClick={() => setCurrentSlide("info")}
-        className={`transition-all ease-in duration-300 uppercase font-bold flex-1 flex items-center justify-center border-brand-theme3-text border-2 ${
+        className={`tab-button uppercase font-bold flex-1 flex items-center justify-center border-brand-theme3-text border-2 ${
           currentSlide == "info" && "border-b-0"
         }`}
       >
@@ -23,14 +23,14 @@ export const TabButtons: React.FC<Props> = ({
       <button
         onClick={() => setCurrentSlide("hire")}
         className={
-          "transition-all ease-in duration-300 uppercase font-bold flex-1 flex items-center justify-center border-brand-theme3-text border-2 border-x-0 fill"
+          "tab-button uppercase font-bold flex-1 flex items-center justify-center border-brand-theme3-text border-2 border-x-0 fill"
         }
       >
         hire
       </button>
       <button
         onClick={() => setCurrentSlide("training")}
-        className={`transition-all ease-in duration-300 uppercase font-bold flex-1 flex items-center justify-center border-brand-theme3-text border-2 ${
+        className={`tab-button uppercase font-bold flex-1 flex items-center justify-center border-brand-theme3-text border-2 ${
           currentSlide == "training" && "border-b-0"
         }`}
       >

@@ -2,7 +2,6 @@ import "../styles/globals.scss";
 import type { ReactElement, ReactNode } from "react";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
-import { QueryProvider } from "../components/query";
 import { ReduxProvider } from "../redux";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -19,9 +18,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return getLayout(
     <ReduxProvider>
-      <QueryProvider>
-        <Component {...pageProps} />
-      </QueryProvider>
+      <Component {...pageProps} />
     </ReduxProvider>
   );
 }

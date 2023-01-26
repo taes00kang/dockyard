@@ -3,7 +3,6 @@ import { FadeInDiv } from "../../animation";
 import { AnimatePresence } from "framer-motion";
 import { SlideTag } from "./types";
 import { RollerButton, SlideContent, TabButtons } from ".";
-import { useWindowSize } from "../../../hooks/useWindowSize";
 
 export const TheSpace: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState<SlideTag>("info");
@@ -13,8 +12,6 @@ export const TheSpace: React.FC = () => {
     "hire",
     "training",
   ];
-
-  const { width } = useWindowSize();
 
   return (
     <div className="the-space relative w-full px-[1%] sm:px-[5%] pb-[10%] ">
@@ -26,8 +23,11 @@ export const TheSpace: React.FC = () => {
           SPACE
         </FadeInDiv>
       </div>
-      <FadeInDiv className="w-full mt-[12vw] h-auto sm:mt-0 sm:h-[40vw] static sm:relative">
-        <TabButtons currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />
+      <FadeInDiv once className="w-full mt-[12vw] h-auto sm:mt-0 sm:h-[40vw] static sm:relative">
+        <TabButtons
+          currentSlide={currentSlide}
+          setCurrentSlide={setCurrentSlide}
+        />
         <div
           className={`slide flex z-[3] top-[8vw] px-[3vw] py-[6vw] sm:py-[2vw] ${
             currentSlide === "hire" && "fill"

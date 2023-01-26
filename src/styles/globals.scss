@@ -178,9 +178,13 @@ circle {
 }
 
 .info-heading {
-    text-transform: uppercase;
-    font-size: 5vw;
+    @include apply-breakpoint(sm) {
+        font-size: 5vw;
     line-height: 5.5vw;
+    }
+    text-transform: uppercase;
+    font-size: 8vw;
+    line-height: 8.5vw;
     font-weight: bold;
     letter-spacing: -0.025em;
 }
@@ -208,7 +212,7 @@ circle {
 
 .slide {
     @include apply-breakpoint(sm) {
-        height: 35vw;
+        height: 38vw;
         box-shadow: none;
         position: absolute;
         border: 2px solid $theme3Text;
@@ -275,10 +279,15 @@ circle {
     }
 }
 
+// Section 5
 .insta-section-heading {
-    margin-top: 10px;
-    font-size: 5vw;
+    @include apply-breakpoint(sm) {
+        font-size: 5vw;
     line-height: 5vw;
+    }
+    margin-top: 10px;
+    font-size: 7vw;
+    line-height: 7vw;
     font-weight: bold;
     letter-spacing: 0.005rem;
 }
@@ -319,4 +328,8 @@ circle {
     border-radius: 50%;
     border: 0.2vw solid $bg;
     transition: all 0.3s ease-in;
+}
+
+.tab-button {
+    transition: all .3s ease-in;
 }

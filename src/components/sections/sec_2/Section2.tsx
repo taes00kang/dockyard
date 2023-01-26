@@ -6,6 +6,7 @@ import { getImage } from "../../../utils";
 import { FadeInDiv } from "../../animation";
 import { CTA } from "../../layout";
 import FoodImage from "./FoodImage";
+import { scrollToSection } from "../../../utils";
 
 export const Section2: React.FC = () => {
   return (
@@ -14,7 +15,10 @@ export const Section2: React.FC = () => {
       <div className="pb-[5vw]">
         <div className="flex flex-col-reverse gap-[10vw] sm:gap-0 sm:flex-row w-full item-center px-[5%] text-brand-theme2-text ">
           <div className="w-full sm:w-[65%] flex flex-col gap-[1vw] justify-center">
-            <FadeInDiv className="flex justify-center sm:justify-start text-[4vw] sm:text-[1.5vw] font-bold">
+            <FadeInDiv
+              once
+              className="flex justify-center sm:justify-start text-[4vw] sm:text-[1.5vw] font-bold"
+            >
               IT'S MORE THAN THAT THOUGH
             </FadeInDiv>
             <div className="relative w-full flex justify-between">
@@ -32,7 +36,7 @@ export const Section2: React.FC = () => {
                 }}
               />
               <div className=" mt-[4vw] sm:mt-[1.5vw] px-[5vw] text-[3vw] sm:text-[1.3vw] font-[400] leading-[6vw] sm:leading-[1.42rem] flex flex-col">
-                <FadeInDiv>
+                <FadeInDiv once>
                   <p>
                     We are The Dockyard Social.
                     <br />
@@ -53,13 +57,20 @@ export const Section2: React.FC = () => {
                   </p>
                 </FadeInDiv>
                 <div className="w-full mt-[8vw] sm:mt-[2.5vw] flex justify-center sm:justify-start">
-                  <CTA theme="theme2" text="free cocktail here" />
+                  <CTA
+                    theme="theme2"
+                    text="free cocktail here"
+                    onClick={() => scrollToSection("list-weekend")}
+                  />
                 </div>
               </div>
             </div>
           </div>
           <div className="flex-1">
-            <FadeInDiv className="relative w-full flex justify-end items-center">
+            <FadeInDiv
+              once
+              className="relative w-full flex justify-end items-center"
+            >
               <Image
                 // src={getImage("home/laughing-lady.jpeg")}
                 src={"/assets/laughing-lady.jpeg"}
