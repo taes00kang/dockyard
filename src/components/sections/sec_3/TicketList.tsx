@@ -12,7 +12,7 @@ export const TicketList: React.FC = () => {
   useEffect(() => {
     const getTickets = () => {
       setLoading(true);
-      fetch("/api/tickets")
+      fetch("https://dd2i0p7y69k4h.cloudfront.net/api/data.json")
         .then((res) => res.json())
         .then((data: ITicket[]) => {
           const tickets_weekend: ITicket[] = [];
@@ -25,7 +25,8 @@ export const TicketList: React.FC = () => {
           });
           setTickets({ weekend: tickets_weekend, event: tickets_event });
           setLoading(false);
-        });
+        })
+        .catch((err) => console.log(err.message));
     };
 
     getTickets();

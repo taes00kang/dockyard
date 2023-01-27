@@ -97,7 +97,6 @@ export const getImage = (fileName: string) => {
 
 export const scrollToSection = (id: string) => {
   const secId = document.getElementById(id);
-  console.log(id);
   
   if (secId)
     window.scrollTo({

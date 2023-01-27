@@ -42,7 +42,7 @@ export const IntroHeadingImage: React.FC<Props> = ({
       }}
     >
       <Image
-        alt="intro box"
+        alt={`intro heading ${position}`}
         // src={getImage(`home/text-block-${isTop ? 1 : isMiddle ? 2 : 3}.svg`)}
         src={`/assets/text-block-${isTop ? 1 : isMiddle ? 2 : 3}.svg`}
         width={300}
