@@ -93,7 +93,7 @@ export const Section4: React.FC = () => {
             width={300}
             height={1000}
             alt="arrow black"
-            className="h-auto mt-[15vw] sm:-left-[150vw] relative w-[400vw] min-w-[350vw]"
+            className="h-auto mt-[15vw] sm:-left-[100vw] relative w-[400vw] min-w-[350vw]"
           />
         </div>
       </div>

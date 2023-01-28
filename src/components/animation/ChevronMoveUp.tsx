@@ -31,6 +31,7 @@ export const ChevronMoveUp: React.FC<Props> = ({
         repeatDelay: repeatDelay,
         ease: "linear",
       }}
+      data-testid={id}
       className={"absolute aspect-[3/2] h-auto bottom-[-100vh] " + className}
     >
       <Image
@@ -38,7 +39,7 @@ export const ChevronMoveUp: React.FC<Props> = ({
         src={`/assets/chevron-up${type === "large" ? "" : "-mini"}.svg`}
         fill
         sizes={type === "large" ? "50vw" : "20vw"}
-        alt="chevron up"
+        alt={`chevron up ${type}`}
       />
     </motion.div>
   );

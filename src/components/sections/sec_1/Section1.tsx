@@ -65,15 +65,20 @@ export const Section1: React.FC = () => {
           <FadeInDiv
             once
             className="text-[4vw] leading-[14vw] md:leading-[1.42rem] md:text-[1vw] pb-[2vw]"
+            dataTestid="sec1-2_heading_1"
           >
             WTF IS THE DOCKYARD?
           </FadeInDiv>
-          <FadeInDiv once>THE DOCKYARD IS A</FadeInDiv>
-          <FadeInDiv once className="red-stroke">
+          <FadeInDiv once dataTestid="sec1-2_heading_2">
+            THE DOCKYARD IS A
+          </FadeInDiv>
+          <FadeInDiv once dataTestid="sec1-2_heading_2" className="red-stroke">
             SOCIAL DINING EXPERIENCE.
           </FadeInDiv>
-          <FadeInDiv once>EAT, DRINK AND HAVE FUN WITH</FadeInDiv>
-          <FadeInDiv once className="red-stroke">
+          <FadeInDiv once dataTestid="sec1-2_heading_2">
+            EAT, DRINK AND HAVE FUN WITH
+          </FadeInDiv>
+          <FadeInDiv once dataTestid="sec1-2_heading_2" className="red-stroke">
             YOUR FRIENDS.
           </FadeInDiv>
         </div>
@@ -106,7 +111,6 @@ export const Section1: React.FC = () => {
           repeatDelay={2.2}
         />
         <ChevronMoveUp
-          id="small-3"
           className="right-[25vw] z-[3]"
           type="small"
           duration={4.5}

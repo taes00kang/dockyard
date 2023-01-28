@@ -1,12 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import tickets from "../../../data/tickets.json";
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   try {
-    res.status(200).json(tickets);
+    const data = await fetch(
+      "https://dd2i0p7y69k4h.cloudfront.net/api/data.json"
+    ).then((res) => res.json());
+    res.status(200).json(data);
   } catch (error: any) {
     console.error(error);
     res.status(500).json({ error: error.message });
