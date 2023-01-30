@@ -1,7 +1,6 @@
-import type { NextPageWithLayout } from "./_app";
-import type { InferGetServerSidePropsType, GetStaticProps } from "next";
 import Head from "next/head";
 import { useEffect } from "react";
+import type { NextPageWithLayout } from "./_app";
 import { colors } from "../styles/colors";
 import { useInView } from "../hooks/useInView";
 

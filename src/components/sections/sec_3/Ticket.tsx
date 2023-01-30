@@ -45,13 +45,13 @@ export const Ticket: React.FC<ITicket> = ({
               onClick={() =>
                 dispatch(
                   addToCart({
-                    id: id,
+                    id,
                     quantity: 1,
-                    price: price,
-                    title: title,
-                    type: type,
-                    day: day,
-                    month: month,
+                    price,
+                    title,
+                    type,
+                    day,
+                    month,
                   })
                 )
               }
@@ -86,7 +86,7 @@ export const Ticket: React.FC<ITicket> = ({
             )}
             <Image
               // src={getImage("home/stripes-cyan.svg")}
-              src={"/assets/stripes-cyan.svg"}
+              src="/assets/stripes-cyan.svg"
               alt="Ticket Chevron"
               width={400}
               height={100}

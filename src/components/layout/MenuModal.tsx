@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimationControls } from "framer-motion";
@@ -35,7 +36,8 @@ export const MenuModal: React.FC<Props> = ({ setIsOpen }) => {
             itemClassName="flex-1"
             contentClassName="w-2/3 py-[3%] px-[2%]"
             onClick={() => {
-              scrollToSection("theme-3"), setIsOpen(false);
+              scrollToSection("theme-3");
+              setIsOpen(false);
             }}
           >
             <h1 className="modal-item__heading">Eat well</h1>
@@ -46,7 +48,8 @@ export const MenuModal: React.FC<Props> = ({ setIsOpen }) => {
             itemClassName="flex-1"
             contentClassName="w-2/3 py-[3%] px-[2%]"
             onClick={() => {
-              scrollToSection("list-weekend"), setIsOpen(false);
+              scrollToSection("list-weekend");
+              setIsOpen(false);
             }}
           >
             <h1 className="modal-item__heading">Every Ticket</h1>
@@ -60,7 +63,8 @@ export const MenuModal: React.FC<Props> = ({ setIsOpen }) => {
             itemClassName="flex-1"
             contentClassName="w-2/3 py-[6%]"
             onClick={() => {
-              scrollToSection("address"), setIsOpen(false);
+              scrollToSection("address");
+              setIsOpen(false);
             }}
           >
             <div className="w-full flex flex-col items-center justify-center">
@@ -75,7 +79,7 @@ export const MenuModal: React.FC<Props> = ({ setIsOpen }) => {
         </div>
         <div>
           <div className="flex items-center justify-center py-[1vw] tracking-wide">
-            Follow us{" "}
+            Follow us
             <a className="ml-[2%]" href="">
               @DockyardSocial
             </a>

@@ -23,7 +23,7 @@ export const FadeInDiv: React.FC<Props> = ({
       variants={fadeInVariants}
       initial="hidden"
       whileInView="shown"
-      viewport={{ once: once }}
+      viewport={{ once }}
       onClick={onClick}
       data-testid={dataTestid}
     >

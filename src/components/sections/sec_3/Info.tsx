@@ -41,7 +41,7 @@ export const Info: React.FC = () => {
       dogs, a lot. Check out @dogyardsocial if you don’t believe us.
       <br />
       <br />
-      PS. Your £5 ticket* works as a deposit, on arrival you'll receive either a
+      PS. Your £5 ticket* works as a deposit, on arrival you"ll receive either a
       Watermelon Daiquiri (mocktails available) / Huuuuuuuuge Premium Beer
       Peroni (660ml yo!) / Premium Cider or a Glass of Prosecco!
       <br />

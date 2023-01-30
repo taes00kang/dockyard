@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable react/jsx-props-no-spreading */
+
 import "../styles/globals.scss";
 import type { ReactElement, ReactNode } from "react";
 import type { NextPage } from "next";

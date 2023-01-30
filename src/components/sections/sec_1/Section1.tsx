@@ -23,8 +23,8 @@ export const Section1: React.FC = () => {
       setTranslateValue(velocity);
     }
 
-    // If window's top offset hits the top of document, set transition value to 0.
-    // To resolve the issue that listener can't properly track changes in scrollPosition when user scrolls up too quickly.
+    // If window"s top offset hits the top of document, set transition value to 0.
+    // To resolve the issue that listener can"t properly track changes in scrollPosition when user scrolls up too quickly.
     window.addEventListener("scroll", () => {
       if (window.scrollY === 0) {
         setTranslateValue(0);

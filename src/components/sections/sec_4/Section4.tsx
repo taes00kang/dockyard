@@ -55,7 +55,7 @@ export const Section4: React.FC = () => {
             >
               <Image
                 // src={getImage("home/map.jpeg")}
-                src={"/assets/map.jpeg"}
+                src="/assets/map.jpeg"
                 alt="location map"
                 fill
                 sizes="(max-width: 767px) 90vw, 34vw"
@@ -89,7 +89,7 @@ export const Section4: React.FC = () => {
         >
           <Image
             // src={getImage("home/arrows-black.svg")}
-            src={"/assets/arrows-black.svg"}
+            src="/assets/arrows-black.svg"
             width={300}
             height={1000}
             alt="arrow black"

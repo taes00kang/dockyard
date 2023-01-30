@@ -19,7 +19,6 @@ export const Section3: React.FC = () => {
         <TicketList />
       </div>
       <TheSpace />
-      
     </section>
   );
 };

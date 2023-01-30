@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import { Cart, CartModal, MenuModal } from ".";
 import { colors } from "../../styles/colors";
 import { useBodyClassName } from "../../hooks/useBodyClassName";
-import { AnimatePresence } from "framer-motion";
 import { useAppSelector } from "../../redux/hooks";
 
 export const Header: React.FC = () => {

@@ -2,7 +2,7 @@ import React from "react";
 
 interface Props {
   color: string;
-  size: number
+  size: number;
 }
 
 export const CloseIcon: React.FC<Props> = ({ color, size }) => {

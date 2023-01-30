@@ -1,14 +1,6 @@
-import {
-  render,
-  screen,
-  fireEvent,
-  getByAltText,
-  getByTestId,
-} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ChevronMoveUp from "../ChevronMoveUp";
 import "@testing-library/jest-dom";
-import { useInView } from 'framer-motion'
-
 
 describe("ChevronMoveUp images", () => {
   it("renders small chevron image", () => {

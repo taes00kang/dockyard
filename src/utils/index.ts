@@ -23,7 +23,7 @@ export const getDate = (
 
   const date = monthLong
     ? dayLong
-      ? dayLong + " " + monthLong
+      ? `${dayLong} ${monthLong}`
       : monthLong
     : null;
 
@@ -77,7 +77,7 @@ export const getMonths = (tickets: ITicket[]): number[] => {
 };
 
 export const sortTicketsByMonth = (months: number[], tickets: ITicket[]) => {
-  let list: [number, ITicket[]][] = [];
+  const list: [number, ITicket[]][] = [];
 
   months.forEach((month) => {
     // get tickets that include current month value
@@ -92,12 +92,12 @@ export const sortTicketsByMonth = (months: number[], tickets: ITicket[]) => {
 };
 
 export const getImage = (fileName: string) => {
-  return "https://dd2i0p7y69k4h.cloudfront.net/images/" + fileName;
+  return `https://dd2i0p7y69k4h.cloudfront.net/images/${fileName}`;
 };
 
 export const scrollToSection = (id: string) => {
   const secId = document.getElementById(id);
-  
+
   if (secId)
     window.scrollTo({
       top: secId.offsetTop,

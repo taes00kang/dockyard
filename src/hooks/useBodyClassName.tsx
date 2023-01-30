@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export function useBodyClassName() {
-  const [bodyClassName, setBodyClassName] = useState('');
+  const [bodyClassName, setBodyClassName] = useState("");
 
   useEffect(() => {
     // Set the initial class name
@@ -19,6 +19,3 @@ export function useBodyClassName() {
 
   return bodyClassName;
 }
-
-
-

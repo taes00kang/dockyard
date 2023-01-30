@@ -28,7 +28,7 @@ export function useImageUrl(key: string) {
     const params = {
       Bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME,
       Key: key,
-      Expires: 60
+      Expires: 60,
     };
 
     s3.getSignedUrl("getObject", params, (err, url) => {

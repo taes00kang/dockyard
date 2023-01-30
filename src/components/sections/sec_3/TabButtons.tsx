@@ -22,9 +22,7 @@ export const TabButtons: React.FC<Props> = ({
       </button>
       <button
         onClick={() => setCurrentSlide("hire")}
-        className={
-          "tab-button uppercase font-bold flex-1 flex items-center justify-center border-brand-theme3-text border-2 border-x-0 fill"
-        }
+        className="tab-button uppercase font-bold flex-1 flex items-center justify-center border-brand-theme3-text border-2 border-x-0 fill"
       >
         hire
       </button>

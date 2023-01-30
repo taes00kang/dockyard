@@ -1,12 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import { getImage } from "../../../utils";
+import { getImage, scrollToSection } from "../../../utils";
 
-//components
+// components
 import { FadeInDiv } from "../../animation";
 import { CTA } from "../../layout";
 import FoodImage from "./FoodImage";
-import { scrollToSection } from "../../../utils";
 
 export const Section2: React.FC = () => {
   return (
@@ -19,13 +18,13 @@ export const Section2: React.FC = () => {
               once
               className="flex justify-center sm:justify-start text-[4vw] sm:text-[1.5vw] font-bold"
             >
-              IT'S MORE THAN THAT THOUGH
+              IT"S MORE THAN THAT THOUGH
             </FadeInDiv>
             <div className="relative w-full flex justify-between">
               <Image
                 className="absolute block h-auto -left-[5vw] w-[6vw] aspect-[3/11]"
                 // src={getImage("home/blue-dots.svg")}
-                src={"/assets/blue-dots.svg"}
+                src="/assets/blue-dots.svg"
                 alt="blue dots"
                 width={100}
                 height={500}
@@ -73,7 +72,7 @@ export const Section2: React.FC = () => {
             >
               <Image
                 // src={getImage("home/laughing-lady.jpeg")}
-                src={"/assets/laughing-lady.jpeg"}
+                src="/assets/laughing-lady.jpeg"
                 alt="laughing lady"
                 width={300}
                 height={300}
@@ -130,7 +129,7 @@ export const Section2: React.FC = () => {
         <div className="overflow-hidden">
           <Image
             // src={getImage("home/stripes-light.svg")}
-            src={"/assets/stripes-light.svg"}
+            src="/assets/stripes-light.svg"
             width={1000}
             height={100}
             alt="light red stripe line"

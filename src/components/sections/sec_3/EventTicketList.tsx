@@ -41,7 +41,8 @@ export const EventTicketList: React.FC<Props> = ({ tickets }) => {
         })}
       </>
     );
-  } else return <></>;
+  }
+  return <></>;
 };
 
 export default EventTicketList;

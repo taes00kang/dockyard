@@ -15,7 +15,6 @@ export const RollerButton: React.FC<Props> = ({
   presetTag,
   slideTags,
 }) => {
-
   const displayValue = useMemo(() => {
     let value: SlideTag;
     switch (presetTag) {
@@ -46,7 +45,9 @@ export const RollerButton: React.FC<Props> = ({
           : { y: 0 }
       }
       transition={{
-        duration: 1, delay:.5, ease: "easeOut"
+        duration: 1,
+        delay: 0.5,
+        ease: "easeOut",
       }}
     >
       {slideTags.map((tag, idx) => (

@@ -29,7 +29,7 @@ export const Section5: React.FC = () => {
             </button>
           </form>
         </div>
-        <div>We promise we won't spam your inbox with loads of cool</div>
+        <div>We promise we won"t spam your inbox with loads of cool</div>
         <div>deals and discounts and super awesome news.</div>
         <div>(unless you want us to?)</div>
       </div>

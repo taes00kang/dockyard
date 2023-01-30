@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { FadeInDiv } from "../../animation";
 import { AnimatePresence } from "framer-motion";
+import { FadeInDiv } from "../../animation";
 import { SlideTag } from "./types";
 import { RollerButton, SlideContent, TabButtons } from ".";
 
@@ -23,7 +23,10 @@ export const TheSpace: React.FC = () => {
           SPACE
         </FadeInDiv>
       </div>
-      <FadeInDiv once className="w-full mt-[12vw] h-auto sm:mt-0 sm:h-[40vw] static sm:relative">
+      <FadeInDiv
+        once
+        className="w-full mt-[12vw] h-auto sm:mt-0 sm:h-[40vw] static sm:relative"
+      >
         <TabButtons
           currentSlide={currentSlide}
           setCurrentSlide={setCurrentSlide}

@@ -5,19 +5,21 @@ interface Props {
   className?: string;
   theme: keyof typeof colors;
   text: string | [string, string];
-  id? : string
+  id?: string;
 }
 
-export const BlockHeading: React.FC<Props> = ({ className, theme, text, id }) => {
+export const BlockHeading: React.FC<Props> = ({
+  className,
+  theme,
+  text,
+  id,
+}) => {
   const isSingleLine = typeof text === "string";
   const themeIndex = theme.charAt(5);
 
   return (
     <div
-      className={
-        "w-full uppercase flex flex-col items-center justify-center " +
-        className
-      }
+      className={`w-full uppercase flex flex-col items-center justify-center ${className}`}
       id={id}
     >
       <div

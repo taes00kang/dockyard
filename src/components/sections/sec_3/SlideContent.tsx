@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { slideContentVariants } from "../../animation/variants";
 import { getImage } from "../../../utils";
-//components
+// components
 import { CTA } from "../../layout";
 import { SlideTag } from "./types";
 
@@ -26,7 +26,7 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
           variants={slideContentVariants}
         >
           <div>
-            <h1 className="info-heading">WE'RE ALL ABOUT</h1>
+            <h1 className="info-heading">WE"RE ALL ABOUT</h1>
             <h1 className="info-heading">THE COMMUNITY.</h1>
           </div>
           <ArrowImage />
@@ -90,7 +90,7 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
           <div className="flex w-full items-center justify-center">
             <Image
               // src={getImage("home/interior.png")}
-              src={"/assets/interior.png"}
+              src="/assets/interior.png"
               alt="interior map"
               width={500}
               height={400}
@@ -153,7 +153,7 @@ const ArrowImage: React.FC = () => {
   return (
     <Image
       // src={getImage("home/arrows-cyan.svg")}
-      src={"/assets/arrows-cyan.svg"}
+      src="/assets/arrows-cyan.svg"
       alt="arrow cyan"
       width={200}
       height={50}

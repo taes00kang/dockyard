@@ -33,7 +33,7 @@ const fadeInVariants = {
     y: 60,
   },
   shown: {
-    opacity: [0,.6,1,1],
+    opacity: [0, 0.6, 1, 1],
     y: 0,
 
     transition: {

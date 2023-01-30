@@ -20,5 +20,5 @@ export const colors = {
   theme3_reverse: {
     bg: variables.theme3Text,
     text: variables.theme3Bg,
-  }
+  },
 };

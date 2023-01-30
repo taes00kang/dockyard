@@ -26,13 +26,13 @@ export const ChevronMoveUp: React.FC<Props> = ({
       initial="initial"
       animate="animate"
       transition={{
-        duration: duration,
+        duration,
         repeat: Infinity,
-        repeatDelay: repeatDelay,
+        repeatDelay,
         ease: "linear",
       }}
       data-testid={id}
-      className={"absolute aspect-[3/2] h-auto bottom-[-100vh] " + className}
+      className={`absolute aspect-[3/2] h-auto bottom-[-100vh] ${className}`}
     >
       <Image
         // src={getImage(`home/chevron-up${type === "large" ? "" : "-mini"}.svg`)}

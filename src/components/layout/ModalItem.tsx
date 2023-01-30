@@ -12,7 +12,7 @@ export const ModalItem: React.FC<Props> = ({
   children,
   itemClassName,
   contentClassName,
-  onClick
+  onClick,
 }) => {
   return (
     <button className={`modal-item ${itemClassName}`} onClick={onClick}>
