@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
 import { ITicketInCart } from "../interfaces";
@@ -33,7 +34,7 @@ export const cartSlice = createSlice({
         (ticket) => ticket.id === action.payload.id
       );
       if (existingTicket) {
-        state.tickets[state.tickets.indexOf(existingTicket)].quantity++;
+        state.tickets[state.tickets.indexOf(existingTicket)].quantity += 1;
       } else {
         state.tickets.push(action.payload);
       }

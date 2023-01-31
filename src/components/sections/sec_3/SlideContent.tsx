@@ -2,10 +2,22 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { slideContentVariants } from "../../animation/variants";
-import { getImage } from "../../../utils";
 // components
 import { CTA } from "../../layout";
 import { SlideTag } from "./types";
+
+const ArrowImage: React.FC = () => {
+  return (
+    <Image
+      // src={getImage("home/arrows-cyan.svg")}
+      src="/assets/arrows-cyan.svg"
+      alt="arrow cyan"
+      width={200}
+      height={50}
+      className="w-full h-auto sm:block hidden"
+    />
+  );
+};
 
 interface Props {
   slideTag: SlideTag;
@@ -26,7 +38,7 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
           variants={slideContentVariants}
         >
           <div>
-            <h1 className="info-heading">WE"RE ALL ABOUT</h1>
+            <h1 className="info-heading">WE&apos;RE ALL ABOUT</h1>
             <h1 className="info-heading">THE COMMUNITY.</h1>
           </div>
           <ArrowImage />
@@ -145,21 +157,8 @@ export const SlideContent: React.FC<Props> = ({ slideTag }) => {
       );
 
     default:
-      return <></>;
+      return null;
   }
-};
-
-const ArrowImage: React.FC = () => {
-  return (
-    <Image
-      // src={getImage("home/arrows-cyan.svg")}
-      src="/assets/arrows-cyan.svg"
-      alt="arrow cyan"
-      width={200}
-      height={50}
-      className="w-full h-auto sm:block hidden"
-    />
-  );
 };
 
 export default SlideContent;

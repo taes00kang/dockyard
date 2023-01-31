@@ -16,20 +16,22 @@ export const RollerButton: React.FC<Props> = ({
   slideTags,
 }) => {
   const displayValue = useMemo(() => {
-    let value: SlideTag;
-    switch (presetTag) {
-      case "info":
-        return currentSlide;
+    let value: SlideTag = currentSlide;
 
-      case "hire": {
-        currentSlide === "hire" ? (value = "info") : (value = "hire");
-        return value;
+    if (presetTag === "hire") {
+      value = "hire";
+      if (currentSlide === "hire") {
+        value = "info";
       }
-
-      case "training":
-        currentSlide === "training" ? (value = "info") : (value = "training");
-        return value;
     }
+
+    if (presetTag === "training") {
+      value = "training";
+      if (currentSlide === "training") {
+        value = "info";
+      }
+    }
+    return value;
   }, [currentSlide, presetTag]);
 
   return (
@@ -52,7 +54,7 @@ export const RollerButton: React.FC<Props> = ({
     >
       {slideTags.map((tag, idx) => (
         <div
-          key={idx}
+          key={tag}
           className="leading-[120%] text-right w-[9vw]"
           style={{
             marginTop: idx === 0 ? 0 : "3vw",

@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
-import Image from "next/image";
 import { motion, useAnimationControls } from "framer-motion";
 import { Modal, ModalItem } from ".";
 import { scrollToSection } from "../../utils";
@@ -90,6 +89,7 @@ export const MenuModal: React.FC<Props> = ({ setIsOpen }) => {
         </div>
 
         <button
+          type="button"
           className="absolute font-bold text-[5vw] md:text-[4vw] lg:text-[3vw] top-0 -right-[10vw] w-[10vw] md:-right-[6vw] md:w-[6vw] aspect-square z-[2] flex items-center justify-center bg-brand-theme3-bg text-brand-theme3-text border-r-4 border-b-4 border-brand-theme3-text"
           onClick={handleCloseClick}
         >

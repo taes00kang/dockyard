@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getImage } from "../../../utils";
 import { useScrollPosition } from "../../../hooks/useScrollPosition";
 
 export const Section4: React.FC = () => {

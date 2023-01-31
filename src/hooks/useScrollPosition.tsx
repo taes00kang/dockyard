@@ -5,11 +5,11 @@ export function useScrollPosition(ref: React.RefObject<HTMLDivElement>) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > ref.current!.offsetTop) {
-        setScrollPosition(window.scrollY - ref.current!.offsetTop);
+      if (ref.current && window.scrollY > ref.current.offsetTop) {
+        setScrollPosition(window.scrollY - ref.current.offsetTop);
       }
     };
-    if (window !== undefined && ref.current) {
+    if (window !== undefined) {
       window.addEventListener("scroll", handleScroll);
     }
     return () => window.removeEventListener("scroll", handleScroll);

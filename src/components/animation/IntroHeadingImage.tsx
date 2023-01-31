@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { introHeadingVariants } from "./variants";
-import { getImage } from "../../utils";
 
 interface Props {
   position: "top" | "middle" | "bottom";

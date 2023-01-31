@@ -5,7 +5,7 @@ interface Props {
   itemClassName?: string;
   contentClassName?: string;
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export const ModalItem: React.FC<Props> = ({
@@ -15,7 +15,11 @@ export const ModalItem: React.FC<Props> = ({
   onClick,
 }) => {
   return (
-    <button className={`modal-item ${itemClassName}`} onClick={onClick}>
+    <button
+      type="button"
+      className={`modal-item ${itemClassName}`}
+      onClick={onClick}
+    >
       <div className="absolute top-0 left-0 w-[20%] h-full">
         <Image
           src="/assets/cyan-dots.svg"

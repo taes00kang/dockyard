@@ -8,7 +8,10 @@ export const Section5: React.FC = () => {
         <div className="insta-section-heading">
           IF YOU REALLY LIKE US MAYBE YOU
         </div>
-        <a href="" className="insta-section-heading">
+        <a
+          href="https://www.instagram.com/dockyardsocial/"
+          className="insta-section-heading"
+        >
           COULD FOLLOW OUR <span className="blue-stroke">INSTA?</span>{" "}
         </a>
         <div>Or...</div>
@@ -29,7 +32,7 @@ export const Section5: React.FC = () => {
             </button>
           </form>
         </div>
-        <div>We promise we won"t spam your inbox with loads of cool</div>
+        <div>We promise we won&apos;t spam your inbox with loads of cool</div>
         <div>deals and discounts and super awesome news.</div>
         <div>(unless you want us to?)</div>
       </div>

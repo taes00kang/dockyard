@@ -11,23 +11,23 @@ interface Props {
 export const EventTicketList: React.FC<Props> = ({ tickets }) => {
   if (tickets) {
     const months = getMonths(tickets);
-    const sorted_list = sortTicketsByMonth(months, tickets);
+    const sortedList = sortTicketsByMonth(months, tickets);
 
     return (
       <>
-        {sorted_list.map((list, idx) => {
+        {sortedList.map((list) => {
           const month = list[0];
           const tickets = list[1];
           return (
-            <div key={idx}>
+            <div key={crypto.randomUUID()}>
               <BlockHeading
                 text={formatMonth(month)}
                 theme="theme3"
                 className="mb-[10vw] sm:mb-[7vw]"
               />
-              {tickets.map((ticket, idx) => (
+              {tickets.map((ticket) => (
                 <Ticket
-                  key={idx}
+                  key={crypto.randomUUID()}
                   id={ticket.id}
                   type={ticket.type}
                   title={ticket.title}
@@ -42,7 +42,7 @@ export const EventTicketList: React.FC<Props> = ({ tickets }) => {
       </>
     );
   }
-  return <></>;
+  return null;
 };
 
 export default EventTicketList;

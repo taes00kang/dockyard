@@ -17,9 +17,9 @@ export const WeekendTicketList: React.FC<Props> = ({ tickets }) => {
         className="mt-[8vw] mb-[12vw] sm:mt-0 sm:mb-[5vw]"
       />
       <ul className="w-full flex flex-col">
-        {tickets.map((ticket, idx) => (
+        {tickets.map((ticket) => (
           <Ticket
-            key={idx}
+            key={ticket.id}
             id={ticket.id}
             type={ticket.type}
             title={ticket.title}
@@ -30,9 +30,7 @@ export const WeekendTicketList: React.FC<Props> = ({ tickets }) => {
         ))}
       </ul>
     </div>
-  ) : (
-    <></>
-  );
+  ) : null;
 };
 
 export default WeekendTicketList;

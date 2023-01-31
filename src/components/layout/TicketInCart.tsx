@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ModalItem } from ".";
 import { ITicketInCart } from "../../interfaces";
 import { useAppDispatch } from "../../redux/hooks";
@@ -25,7 +25,7 @@ export const TicketInCart: React.FC<Props> = ({ ticket }) => {
               dispatch(
                 updateQuantity({
                   id: ticket.id,
-                  quantity: parseInt(e.target.value),
+                  quantity: parseInt(e.target.value, 10),
                 })
               );
             }}
@@ -33,6 +33,7 @@ export const TicketInCart: React.FC<Props> = ({ ticket }) => {
         </div>
         <div className="flex items-center justify-between">
           <button
+            type="button"
             className="font-bold"
             onClick={() => dispatch(removeFromCart(ticket.id))}
           >

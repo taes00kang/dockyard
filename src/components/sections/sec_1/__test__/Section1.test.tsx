@@ -39,7 +39,7 @@ describe("Section1", () => {
     });
   });
 
-  it("renders "free cocktail here" button.", () => {
+  it("renders 'free cocktail here' button.", () => {
     const button = screen.getByRole("button", { name: "free cocktail here" });
     expect(button).toBeInTheDocument();
   });

@@ -21,7 +21,7 @@ export function useInView(): InViewId {
 
     function handleScroll() {
       // For each element, check if it is in view
-      sections.forEach(function (section) {
+      sections.forEach((section) => {
         if (isInView(section)) {
           // If the section is in view, set the inViewId state to the section"s ID
           setInViewId(section.id);

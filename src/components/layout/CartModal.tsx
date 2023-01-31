@@ -34,6 +34,7 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
       >
         <div className="w-full relative h-[8%] bg-brand-theme3-text flex items-center justify-center">
           <button
+            type="button"
             className="absolute left-[2%] w-fit h-fit"
             onClick={handleCloseClick}
           >
@@ -67,7 +68,10 @@ export const CartModal: React.FC<Props> = ({ setIsOpen }) => {
             </div>
           </div>
           <div className="flex w-full h-full items-center">
-            <button className="w-full h-[8vh] text-brand-theme3-bg border-2 font-semibold border-brand-theme3-bg hover:bg-brand-theme3-bg hover:text-[2.5vh] hover:text-brand-theme3-text duration-200 ease-in ">
+            <button
+              type="button"
+              className="w-full h-[8vh] text-brand-theme3-bg border-2 font-semibold border-brand-theme3-bg hover:bg-brand-theme3-bg hover:text-[2.5vh] hover:text-brand-theme3-text duration-200 ease-in "
+            >
               Check Out
             </button>
           </div>

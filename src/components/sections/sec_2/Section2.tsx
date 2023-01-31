@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { getImage, scrollToSection } from "../../../utils";
+import { scrollToSection } from "../../../utils";
 
 // components
 import { FadeInDiv } from "../../animation";
@@ -18,7 +18,7 @@ export const Section2: React.FC = () => {
               once
               className="flex justify-center sm:justify-start text-[4vw] sm:text-[1.5vw] font-bold"
             >
-              IT"S MORE THAN THAT THOUGH
+              IT&apos;S MORE THAN THAT THOUGH
             </FadeInDiv>
             <div className="relative w-full flex justify-between">
               <Image

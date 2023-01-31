@@ -20,14 +20,16 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint", "prettier", "unused-imports"],
   rules: {
-    "react/react-in-jsx-scope": 0,
-    "react-hooks/exhaustive-deps": 0,
+    "@typescript-eslint/no-shadow": 0,
+    "no-nested-ternary": 0,
+    "no-console": 0,
     "import/no-cycle": 0,
-    "react/button-has-type": 0,
     "import/prefer-default-export": 0,
     "import/no-named-as-default": 0,
-    "@typescript-eslint/no-shadow": 0,
-    "react/jsx-no-useless-fragment": 0,
+    "unused-imports/no-unused-imports-ts": 1,
+    "react-hooks/exhaustive-deps": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/require-default-props": 0,
     "react/function-component-definition": [
       0,
       {
@@ -35,8 +37,5 @@ module.exports = {
         unnamedComponents: "arrow-function",
       },
     ],
-    "react/require-default-props": 0,
-    "unused-imports/no-unused-imports-ts": 0,
-    "no-nested-ternary": 0,
   },
 };

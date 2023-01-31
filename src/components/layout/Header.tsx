@@ -42,15 +42,20 @@ export const Header: React.FC = () => {
   return (
     <div className="header flex items-center justify-between w-full py-[2%] md:py-[.5%] px-[2%]">
       <button
+        type="button"
         className="uppercase text-[4vw] md:text-[1.5vw] font-semibold"
         onClick={() => setMenuOpen(true)}
       >
         menu
       </button>
-      <button className="logo uppercase text-[6vw] md:text-[4vw] leading-[5vw] font-bold">
+      <button
+        type="button"
+        className="logo uppercase text-[6vw] md:text-[4vw] leading-[5vw] font-bold"
+      >
         the dockyard social
       </button>
       <button
+        type="button"
         className="relative w-[5vw] md:w-[3vw] aspect-square"
         onClick={() => setCartOpen(true)}
       >

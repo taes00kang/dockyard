@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-import { getImage } from "../../../utils";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 
 interface Props {

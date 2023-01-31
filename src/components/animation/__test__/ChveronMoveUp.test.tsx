@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 import { render, screen } from "@testing-library/react";
 import ChevronMoveUp from "../ChevronMoveUp";
 import "@testing-library/jest-dom";

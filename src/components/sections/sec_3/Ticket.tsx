@@ -4,7 +4,7 @@ import { CTA } from "../../layout";
 import { FadeInDiv } from "../../animation";
 import HorizontalLine from "./HorizontalLine";
 import { ITicket } from "../../../interfaces";
-import { getDate, getImage } from "../../../utils";
+import { getDate } from "../../../utils";
 import { useAppDispatch } from "../../../redux/hooks";
 import { addToCart } from "../../../redux/ticketSlice";
 

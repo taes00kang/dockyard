@@ -16,15 +16,13 @@ export const TicketList: React.FC = () => {
       fetch("/api/tickets")
         .then((res) => res.json())
         .then((data: ITicket[]) => {
-          const TICKETS_WEEKEND: ITicket[] = [];
-          const TICKETS_EVENTS: ITicket[] = [];
+          const ticketsWeekend: ITicket[] = [];
+          const ticketsEvent: ITicket[] = [];
 
           data.forEach((t) => {
-            t.type === "event"
-              ? TICKETS_EVENTS.push(t)
-              : TICKETS_WEEKEND.push(t);
+            t.type === "event" ? ticketsEvent.push(t) : ticketsWeekend.push(t);
           });
-          setTickets({ weekend: TICKETS_WEEKEND, event: TICKETS_EVENTS });
+          setTickets({ weekend: ticketsWeekend, event: ticketsEvent });
           setLoading(false);
         })
         .catch((err) => console.log(err.message));
@@ -34,7 +32,7 @@ export const TicketList: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <></>;
+    return null;
   }
 
   return (

@@ -14,6 +14,7 @@ export const CTA: React.FC<Props> = ({ theme, text, onClick }) => {
   return (
     <FadeInDiv once className="relative w-fit h-fit" onClick={onClick}>
       <button
+        type="button"
         className="front relative uppercase border-2 z-[2] hover:translate-x-[10px] hover:translate-y-[10px] px-[2.5vw] py-[1vw] duration-200 font-bold text-[5vw] leading-[7vw] sm:text-[3vw] sm:leading-[4vw] lg:text-[1.5vw] lg:leading-[2vw] ease-in"
         style={{
           borderColor: color.text,

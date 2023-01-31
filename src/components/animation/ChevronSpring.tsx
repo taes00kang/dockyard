@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { chevronVariants } from "./variants";
-import { getImage } from "../../utils";
 
 export const ChevronSpring: React.FC = () => {
   return (
