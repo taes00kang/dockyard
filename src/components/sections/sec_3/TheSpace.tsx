@@ -32,6 +32,7 @@ export const TheSpace: React.FC = () => {
           setCurrentSlide={setCurrentSlide}
         />
         <div
+          data-testid="slide-container"
           className={`slide flex z-[3] top-[8vw] px-[3vw] py-[6vw] sm:py-[2vw] ${
             currentSlide === "hire" && "fill"
           }`}

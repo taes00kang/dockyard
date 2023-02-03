@@ -35,16 +35,22 @@ export const RollerButton: React.FC<Props> = ({
   }, [currentSlide, presetTag]);
 
   return (
-    <motion.div
+    <motion.button
+      data-testid={`roller-button-${
+        presetTag === "info" ? 1 : presetTag === "hire" ? 2 : 3
+      }`}
+      id={`roller-button-${
+        presetTag === "info" ? 1 : presetTag === "hire" ? 2 : 3
+      }`}
       className="slide__text-roller"
       onClick={() => setCurrentSlide(displayValue)}
-      initial={{ y: 0 }}
+      initial={{ y: "0" }}
       animate={
         displayValue === "hire"
           ? { y: "-6vw" }
           : displayValue === "training"
           ? { y: "-12vw" }
-          : { y: 0 }
+          : { y: "0" }
       }
       transition={{
         duration: 1,
@@ -63,7 +69,7 @@ export const RollerButton: React.FC<Props> = ({
           {tag}
         </div>
       ))}
-    </motion.div>
+    </motion.button>
   );
 };
 

@@ -1,6 +1,6 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import { useEffect } from "react";
-import type { NextPageWithLayout } from "./_app";
 import { colors } from "../styles/colors";
 import { useInView } from "../hooks/useInView";
 
@@ -19,7 +19,7 @@ import {
   Section5,
 } from "../components/sections";
 
-const Home: NextPageWithLayout = () => {
+const Home: NextPage = () => {
   const { inViewId } = useInView();
 
   useEffect(() => {

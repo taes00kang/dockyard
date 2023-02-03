@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { scrollToSection } from "../../../utils";
+import { scrollToSection, getImageUrl } from "../../../utils";
 
 // components
 import { FadeInDiv } from "../../animation";
@@ -23,8 +23,7 @@ export const Section2: React.FC = () => {
             <div className="relative w-full flex justify-between">
               <Image
                 className="absolute block h-auto -left-[5vw] w-[6vw] aspect-[3/11]"
-                // src={getImage("home/blue-dots.svg")}
-                src="/assets/blue-dots.svg"
+                src={getImageUrl("blue-dots.svg")}
                 alt="blue dots"
                 width={100}
                 height={500}
@@ -71,8 +70,7 @@ export const Section2: React.FC = () => {
               className="relative w-full flex justify-end items-center"
             >
               <Image
-                // src={getImage("home/laughing-lady.jpeg")}
-                src="/assets/laughing-lady.jpeg"
+                src={getImageUrl("laughing-lady.jpeg")}
                 alt="laughing lady"
                 width={300}
                 height={300}
@@ -88,18 +86,21 @@ export const Section2: React.FC = () => {
         <div className="bg-blue-dots w-full flex flex-col mt-[13vw] pt-[5vw] pb-[13vw] gap-0 sm:gap-[10vw] md:gap-[5vw] lg:gap-[2vw] ">
           <div className="pics-top relative z-[1] w-full flex flex-col sm:flex-row items-center justify-between">
             <FoodImage
+              alt="food image 1"
               srcSet={["food-1-1.jpeg", "food-1-2.jpeg"]}
               translateX={82}
               translateY={26}
               rotate={-14}
             />
             <FoodImage
+              alt="food image 2"
               srcSet={["food-2-1.jpeg", "food-2-2.jpeg"]}
               translateX={-43}
               translateY={-57}
               rotate={-6}
             />
             <FoodImage
+              alt="food image 3"
               srcSet={["food-3-1.jpeg", "food-3-2.jpeg"]}
               translateX={-167}
               rotate={9}
@@ -107,18 +108,21 @@ export const Section2: React.FC = () => {
           </div>
           <div className="pics-bottom relative z-[4] w-full flex flex-col sm:flex-row items-center justify-end">
             <FoodImage
+              alt="food image 4"
               srcSet={["food-4-1.jpeg", "food-4-2.jpeg"]}
               translateX={-214}
               translateY={-124}
               rotate={6}
             />
             <FoodImage
+              alt="food image 5"
               srcSet={["food-5-1.jpeg", "food-5-2.jpeg"]}
               translateX={-143}
               translateY={-95}
               rotate={11}
             />
             <FoodImage
+              alt="food image 6"
               srcSet={["food-6-1.jpeg", "food-6-2.jpeg"]}
               translateX={-68}
               translateY={-135}
@@ -128,8 +132,7 @@ export const Section2: React.FC = () => {
         </div>
         <div className="overflow-hidden">
           <Image
-            // src={getImage("home/stripes-light.svg")}
-            src="/assets/stripes-light.svg"
+            src={getImageUrl("stripes-light.svg")}
             width={1000}
             height={100}
             alt="light red stripe line"

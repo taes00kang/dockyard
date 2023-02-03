@@ -19,7 +19,7 @@ export const EventTicketList: React.FC<Props> = ({ tickets }) => {
           const month = list[0];
           const tickets = list[1];
           return (
-            <div key={crypto.randomUUID()}>
+            <div key={month}>
               <BlockHeading
                 text={formatMonth(month)}
                 theme="theme3"
@@ -27,7 +27,7 @@ export const EventTicketList: React.FC<Props> = ({ tickets }) => {
               />
               {tickets.map((ticket) => (
                 <Ticket
-                  key={crypto.randomUUID()}
+                  key={ticket.id}
                   id={ticket.id}
                   type={ticket.type}
                   title={ticket.title}

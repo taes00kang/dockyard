@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { introHeadingVariants } from "./variants";
+import { getImageUrl } from "../../utils";
 
 interface Props {
   position: "top" | "middle" | "bottom";
@@ -41,8 +42,7 @@ export const IntroHeadingImage: React.FC<Props> = ({
     >
       <Image
         alt={`intro heading ${position}`}
-        // src={getImage(`home/text-block-${isTop ? 1 : isMiddle ? 2 : 3}.svg`)}
-        src={`/assets/text-block-${isTop ? 1 : isMiddle ? 2 : 3}.svg`}
+        src={getImageUrl(`text-block-${isTop ? 1 : isMiddle ? 2 : 3}.svg`)}
         width={300}
         height={200}
         className={`w-[85%] sm:w-[70%] md:w-[50%] h-auto ${imageClassName}`}

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { chevronVariants } from "./variants";
+import { getImageUrl } from "../../utils";
 
 export const ChevronSpring: React.FC = () => {
   return (
@@ -15,8 +16,7 @@ export const ChevronSpring: React.FC = () => {
     >
       <Image
         alt="chevron down"
-        // src={getImage("home/chevron-down.svg")}
-        src="/assets/chevron-down.svg"
+        src={getImageUrl("chevron-down.svg")}
         width={300}
         height={200}
       />

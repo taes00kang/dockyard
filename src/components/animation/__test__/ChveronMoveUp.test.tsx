@@ -1,21 +1,27 @@
 /* eslint-disable import/no-named-as-default */
-import { render, screen } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import ChevronMoveUp from "../ChevronMoveUp";
 import "@testing-library/jest-dom";
 
 describe("ChevronMoveUp images", () => {
-  it("renders small chevron image", () => {
+  it("renders small chevron image", async () => {
     render(<ChevronMoveUp type="small" duration={5} repeatDelay={1} />);
 
-    const chevron = screen.getByAltText("chevron up small");
+    const chevron = document.querySelector("img") as HTMLImageElement;
 
-    expect(chevron).toBeInTheDocument();
+    waitFor(() =>
+      expect(chevron.getAttribute("src")).toEqual(
+        "https://dd2i0p7y69k4h.cloudfront.net/images/home/chevron-up-mini.svg"
+      )
+    );
   });
-  it("renders large chevron image", () => {
+  it("renders large chevron image", async () => {
     render(<ChevronMoveUp type="large" duration={5} repeatDelay={1} />);
 
-    const chevron = screen.getByAltText("chevron up large");
+    const chevron = document.querySelector("img") as HTMLImageElement;
 
-    expect(chevron).toBeInTheDocument();
+    expect(chevron.getAttribute("src")).toEqual(
+      "https://dd2i0p7y69k4h.cloudfront.net/images/home/chevron-up.svg"
+    );
   });
 });

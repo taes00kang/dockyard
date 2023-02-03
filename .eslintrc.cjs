@@ -16,13 +16,14 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: "./tsconfig.json",
+    project: ["./tsconfig.json"],
   },
   plugins: ["react", "@typescript-eslint", "prettier", "unused-imports"],
   rules: {
     "@typescript-eslint/no-shadow": 0,
     "no-nested-ternary": 0,
     "no-console": 0,
+    "no-plusplus": 0,
     "import/no-cycle": 0,
     "import/prefer-default-export": 0,
     "import/no-named-as-default": 0,

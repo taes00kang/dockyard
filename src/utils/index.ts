@@ -1,4 +1,5 @@
 import { ITicket } from "../interfaces";
+import { prefixImageUrl } from "../constant";
 
 export const formatMonth = (n: number) => {
   const rule = new Intl.DateTimeFormat("en-US", {
@@ -90,8 +91,8 @@ export const sortTicketsByMonth = (months: number[], tickets: ITicket[]) => {
   return list;
 };
 
-export const getImage = (fileName: string) => {
-  return `https://dd2i0p7y69k4h.cloudfront.net/images/${fileName}`;
+export const getImageUrl = (fileName: string) => {
+  return prefixImageUrl + fileName;
 };
 
 export const scrollToSection = (id: string) => {

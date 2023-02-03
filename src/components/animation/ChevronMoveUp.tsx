@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { chevronUpVariants } from "./variants";
+import { getImageUrl } from "../../utils";
 
 interface Props {
   id?: string;
@@ -34,8 +35,7 @@ export const ChevronMoveUp: React.FC<Props> = ({
       className={`absolute aspect-[3/2] h-auto bottom-[-100vh] ${className}`}
     >
       <Image
-        // src={getImage(`home/chevron-up${type === "large" ? "" : "-mini"}.svg`)}
-        src={`/assets/chevron-up${type === "large" ? "" : "-mini"}.svg`}
+        src={getImageUrl(`chevron-up${type === "large" ? "" : "-mini"}.svg`)}
         fill
         sizes={type === "large" ? "50vw" : "20vw"}
         alt={`chevron up ${type}`}

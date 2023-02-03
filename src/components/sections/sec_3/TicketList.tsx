@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 import React, { useState, useEffect } from "react";
 import { ITicket } from "../../../interfaces";
 import { EventTicketList, WeekendTicketList } from ".";
@@ -8,11 +7,9 @@ export const TicketList: React.FC = () => {
     weekend: ITicket[];
     event: ITicket[];
   } | null>(null);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const getTickets = () => {
-      setLoading(true);
+    const getTickets = async () => {
       fetch("/api/tickets")
         .then((res) => res.json())
         .then((data: ITicket[]) => {
@@ -20,10 +17,18 @@ export const TicketList: React.FC = () => {
           const ticketsEvent: ITicket[] = [];
 
           data.forEach((t) => {
-            t.type === "event" ? ticketsEvent.push(t) : ticketsWeekend.push(t);
+            switch (t.type) {
+              case "event":
+                ticketsEvent.push(t);
+                break;
+              case "weekend":
+                ticketsWeekend.push(t);
+                break;
+              default:
+                break;
+            }
           });
           setTickets({ weekend: ticketsWeekend, event: ticketsEvent });
-          setLoading(false);
         })
         .catch((err) => console.log(err.message));
     };
@@ -31,15 +36,13 @@ export const TicketList: React.FC = () => {
     getTickets();
   }, []);
 
-  if (loading) {
-    return null;
-  }
-
-  return (
-    <>
-      <WeekendTicketList tickets={tickets?.weekend} />
-      <EventTicketList tickets={tickets?.event} />
-    </>
+  return tickets ? (
+    <div data-testid="ticket-list">
+      <WeekendTicketList tickets={tickets.weekend} />
+      <EventTicketList tickets={tickets.event} />
+    </div>
+  ) : (
+    <div data-testid="ticket-no">loading...</div>
   );
 };
 

@@ -19,10 +19,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.js",
     "./.eslintrc.cjs",
     "./next.config.js",
     "./tailwind.config.js",
-    "jest.setup.js",
     "jest.config.js",
     "postcss.config.js"
   ],

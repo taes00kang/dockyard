@@ -4,7 +4,7 @@ import { CTA } from "../../layout";
 import { FadeInDiv } from "../../animation";
 import HorizontalLine from "./HorizontalLine";
 import { ITicket } from "../../../interfaces";
-import { getDate } from "../../../utils";
+import { getDate, getImageUrl } from "../../../utils";
 import { useAppDispatch } from "../../../redux/hooks";
 import { addToCart } from "../../../redux/ticketSlice";
 
@@ -85,8 +85,7 @@ export const Ticket: React.FC<ITicket> = ({
               <div />
             )}
             <Image
-              // src={getImage("home/stripes-cyan.svg")}
-              src="/assets/stripes-cyan.svg"
+              src={getImageUrl("stripes-cyan.svg")}
               alt="Ticket Chevron"
               width={400}
               height={100}

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useScrollPosition } from "../../../hooks/useScrollPosition";
+import { getImageUrl } from "../../../utils";
 
 export const Section4: React.FC = () => {
   const [traslateValue, setTraslateValue] = useState(0);
@@ -19,8 +20,8 @@ export const Section4: React.FC = () => {
         className="flex items-center justify-center flex-col py-[15vw]"
         id="address"
       >
-        <div className="heading-theme-4 top">Where to</div>
-        <div className="heading-theme-4 bottom">Find us</div>
+        <h1 className="heading-theme-4 top">Where to</h1>
+        <h1 className="heading-theme-4 bottom">Find us</h1>
       </div>
       <div className="px-[5%]">
         <div className="flex flex-col sm:flex-row">
@@ -53,8 +54,7 @@ export const Section4: React.FC = () => {
               className="w-3/4 relative aspect-square border-[3px] border-black shadow-[11px_11px_0_0_#000]"
             >
               <Image
-                // src={getImage("home/map.jpeg")}
-                src="/assets/map.jpeg"
+                src={getImageUrl("map.jpeg")}
                 alt="location map"
                 fill
                 sizes="(max-width: 767px) 90vw, 34vw"
@@ -87,8 +87,7 @@ export const Section4: React.FC = () => {
           }}
         >
           <Image
-            // src={getImage("home/arrows-black.svg")}
-            src="/assets/arrows-black.svg"
+            src={getImageUrl("arrows-black.svg")}
             width={300}
             height={1000}
             alt="arrow black"
