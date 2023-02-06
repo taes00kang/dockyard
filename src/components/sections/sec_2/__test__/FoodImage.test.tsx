@@ -2,7 +2,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-import { prefixImageUrl } from "../../../../constant";
 import FoodImage from "../FoodImage";
 
 describe("Food image", () => {
@@ -21,10 +20,14 @@ describe("Food image", () => {
       .getAttribute("src");
 
     expect(frontImageSrc).toContain(
-      encodeURIComponent(`${prefixImageUrl}food-1-1.jpeg`)
+      encodeURIComponent(
+        `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}food-1-1.jpeg`
+      )
     );
     expect(backImageSrc).toContain(
-      encodeURIComponent(`${prefixImageUrl}food-1-2.jpeg`)
+      encodeURIComponent(
+        `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}food-1-2.jpeg`
+      )
     );
   });
 });

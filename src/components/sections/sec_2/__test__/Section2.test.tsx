@@ -1,7 +1,6 @@
 /* eslint-disable import/no-named-as-default */
 import { render, screen } from "@testing-library/react";
 import Section2 from "../Section2";
-import { prefixImageUrl } from "../../../../constant";
 import "@testing-library/jest-dom";
 
 describe("Section 2", () => {
@@ -20,7 +19,9 @@ describe("Section 2", () => {
     const imageSrc = image.getAttribute("src");
 
     expect(imageSrc).toContain(
-      encodeURIComponent(`${prefixImageUrl}laughing-lady.jpeg`)
+      encodeURIComponent(
+        `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}laughing-lady.jpeg`
+      )
     );
   });
 });
