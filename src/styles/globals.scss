@@ -73,7 +73,7 @@ input {
 }
 
 .dots-and-info {
-    background-image: url("/assets/dotted1.svg");
+    background-image: url("https://dd2i0p7y69k4h.cloudfront.net/images/home/red-dots-bg.svg");
     background-repeat: no-repeat;
 }
 
@@ -114,10 +114,9 @@ circle {
 
 .bg-blue-dots {
     @include apply-breakpoint(sm) {
-        background-image: url("/assets/blue-dots-bg.svg");
+        background-image: url("https://dd2i0p7y69k4h.cloudfront.net/images/home/blue-dots-bg.svg");
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        background-repeat: no-repeat;
         background-size: 75%;
     }
     background-image: none;

@@ -36,7 +36,7 @@ export const Section1: React.FC = () => {
     <section id="theme-1">
       {/* Sec 1-1 */}
       <div className="flex flex-col justify-center items-center px-[5%] py-[24vw] sm:py-[16vw] md:py-0 sm:h-auto overflow-x-hidden">
-        <div className="dots-and-info relative w-full h-full pb-[2%] bg-[length:60%] md:bg-[length:40%] bg-[100%_2%] sm:bg-[99%_90%] flex flex-col items-center sm:items-start justify-end ">
+        <div className="dots-and-info relative w-full h-full pb-[2%] bg-[length:60%] md:bg-[length:40%] bg-[100%_2%] sm:bg-[99%_90%] flex flex-col items-center sm:items-start justify-end bg-no-repeat">
           <div className="flex flex-col w-full justify-center pt-[10%] md:h-[45vw]">
             <div ref={ref} data-testid="intro-headings-ref" />
             <IntroHeadingImage translateValue={translateValue} position="top" />

@@ -83,7 +83,7 @@ export const Section2: React.FC = () => {
           </div>
         </div>
         {/* Sec-2-2 */}
-        <div className="bg-blue-dots w-full flex flex-col mt-[13vw] pt-[5vw] pb-[13vw] gap-0 sm:gap-[10vw] md:gap-[5vw] lg:gap-[2vw] ">
+        <div className="bg-blue-dots w-full flex flex-col mt-[13vw] pt-[5vw] pb-[13vw] gap-0 sm:gap-[10vw] md:gap-[5vw] lg:gap-[2vw]">
           <div className="pics-top relative z-[1] w-full flex flex-col sm:flex-row items-center justify-between">
             <FoodImage
               alt="food image 1"

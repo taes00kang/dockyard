@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { getImageUrl } from "../../utils";
 
 interface Props {
   itemClassName?: string;
@@ -22,7 +23,7 @@ export const ModalItem: React.FC<Props> = ({
     >
       <div className="absolute top-0 left-0 w-[20%] h-full">
         <Image
-          src="/assets/cyan-dots.svg"
+          src={getImageUrl("cyan-dots.svg")}
           alt="cyan dots"
           fill
           style={{ objectFit: "cover", objectPosition: "right" }}
