@@ -7,7 +7,7 @@ A single page e-commerce website. This project is focused on practical exercises
 [![Go to Live](https://firebasestorage.googleapis.com/v0/b/instagrid-beafb.appspot.com/o/btn-link.svg?alt=media&token=2b3c5b08-9f84-4975-a3cc-150ce45c7f26)](https://dockyard.vercel.app/)
 
 
-![alt text](dockyard-demo.gif)
+![alt text](demo.png)
 
 ## Stacks
 - Next JS
