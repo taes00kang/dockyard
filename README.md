@@ -1,27 +1,25 @@
-# Next.js + Tailwind CSS Example
+# The Dockyard Social
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+A single page e-commerce website. This project is focused on practical exercises for UI transitions, AWS S3 and Cloudfront. 
 
-## Deploy your own
+## Demo
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+[![Go to Live](https://firebasestorage.googleapis.com/v0/b/instagrid-beafb.appspot.com/o/btn-link.svg?alt=media&token=2b3c5b08-9f84-4975-a3cc-150ce45c7f26)](https://dockyard.vercel.app/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
 
-## How to use
+![alt text](dockyard-demo.gif)
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+## Stacks
+- Next JS
+- Tailwind CSS + SCSS
+- Framer motion
+- React redux (for the carting system)
+- AWS S3 + Cloudfront (for assets and data distribution)
+- Jest & React testing library (for unit tests)
+- Figma (for assets)
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## What I learned from this project
+- How to manage AWS S3 bucket (e.g: bucket policy, ACL, presigned URL, CORS) and distribute assets via Cloudfront. 
+- Deeper understanding of UI transitions and best practices for Framer motion. 
+- Concepts for React custom hooks and when to use them.
+- How to configure and implement MSW (Mock Service Worker) in unit testing.
