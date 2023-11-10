@@ -5,7 +5,7 @@ module.exports = {
     dangerouslyAllowSVG: true,
     domains: [
       "tk-bucket-59460385.s3.amazonaws.com",
-      "dd2i0p7y69k4h.cloudfront.net",
+      "d108xogc0na6g4.cloudfront.net",
     ],
   },
 };
