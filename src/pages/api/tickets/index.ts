@@ -6,7 +6,7 @@ export default async function handler(
 ) {
   try {
     const data = await fetch(
-      "https://dd2i0p7y69k4h.cloudfront.net/api/data.json"
+      `${process.env.NEXT_PUBLIC_CLOUDFRONT_URL as string}data/data.json`
     ).then((res) => res.json());
     res.status(200).json(data);
   } catch (error: unknown) {
